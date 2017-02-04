@@ -41,7 +41,7 @@ static axis axes[] = {
         .short_name = "RA",
         .steps_per_15_degrees = 2 * 120 * 130,
         .step_pin = 13, .dir_pin = 12,
-        .input_analog_pin = A0, .enable_pin = 6,
+        .input_analog_pin = A0, .enable_pin = 11,
     },
     [DECLINATION] = {
         .short_name = "DEC",
@@ -49,7 +49,7 @@ static axis axes[] = {
           * clutch, but that's sort of okay, because it moves really fast */
         .steps_per_15_degrees = 2 * 80 * 65,
         .step_pin = 10, .dir_pin = 9,
-        .input_analog_pin = A1, .enable_pin = 5,
+        .input_analog_pin = A1, .enable_pin = 8,
     },
 };
 
