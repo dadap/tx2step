@@ -59,18 +59,20 @@ bool step_due(axis_index i, unsigned long now) {
 
 /* Perform a step on axis i. */
 void do_step(axis_index i, urgency when) {
+    /* DRV8834 requires a 1.9 µs minimum pulse duration;
+     * delayMicroseconds() is not precise < 3 µs according to docs */
+    const int PULSE_DURATION_US = 4;
+
     /* Ignore next_step and avoid delay if the rate is 0 */
     if (axes[i].current_rate != 0) {
         unsigned long now = micros();
 
         /* Always step if when is IMMEDIATE, ignoring when next step is due */
         if (when == IMMEDIATE || step_due(i, now)) {
-            /* DRV8834 requires 1.9 µs minimum pulse duration;
-             * delayMicroseconds() is not precise < 3 µs according to docs */
             digitalWrite(axes[i].step_pin, HIGH);
-            delayMicroseconds(4);
+            delayMicroseconds(PULSE_DURATION_US);
             digitalWrite(axes[i].step_pin, LOW);
-            delayMicroseconds(4);
+            delayMicroseconds(PULSE_DURATION_US);
 
             axes[i].last_step = now;
 
