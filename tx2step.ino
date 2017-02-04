@@ -45,6 +45,8 @@ static axis axes[] = {
     },
     [DECLINATION] = {
         .short_name = "DEC",
+         /* XXX this is actually wrong because it doesn't account for the
+          * clutch, but that's sort of okay, because it moves really fast */
         .steps_per_15_degrees = 2 * 80 * 65,
         .step_pin = 10, .dir_pin = 9,
         .input_analog_pin = A1, .enable_pin = 5,
@@ -102,8 +104,8 @@ unsigned long us_per_step(axis_index i, int rate)
 void set_rate(axis_index i, urgency when) {
     /* Table of tracking/setting rates, in units of 1/4 sidereal rate, e.g.,
      * a rate value of "12" represents 3x sidereal rate. */
-    const int rates[] = {-64, -32, -12, -4, -3, -2, -1,
-                         0, 1, 2, 3, 4, 12, 32, 64};
+    const int rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
+                         0, 1, 2, 3, 4, 12, 32, 64, 128};
     int new_rate = rates[constrain(
                              map(analogRead(axes[i].input_analog_pin),
                                  0, 1023,
