@@ -6,16 +6,20 @@ const unsigned long sidereal_hour_us = 3590170483;
 
 /* Axis/motor attributes */
 typedef struct {
+    /* permanent configuration attributes */
+    const unsigned long steps_per_15_degrees; /* steps per 15°/sidereal hour */
+    const int step_pin; /* pin to drive stepper pulses */
+    const int dir_pin; /* pin to set motor direction */
+    const int input_analog_pin; /* pin to read analog input from joystick */
+    const int enable_pin; /* pin to enable/disable driver */
+    const int pot_min; /* minimum value of joystick potentiometer */
+    const int pot_max; /* maximum value of joystick potentiometer */
+
+    /* dynamic runtime variables */
     unsigned long last_step; /* µsec timestamp of most recent step */
     unsigned long next_step; /* µsec timestamp of next scheduled step */
-    unsigned long steps_per_15_degrees; /* # steps per 15° (one sidereal hour) */
     int current_rate; /* tracking/setting rate in units of 1/4 sidereal rate */
     unsigned long us_per_step; /* µs per step at current rate (cached value) */
-    int step_pin; /* pin to drive stepper pulses */
-    int dir_pin; /* pin to set motor direction */
-    int microstep_pin; /* pin to toggle microstepping rate (not implemented) */
-    int input_analog_pin; /* pin to read analog input from joystick */
-    int enable_pin; /* pin to enable/disable driver */
 } axis;
 
 typedef enum {
@@ -31,9 +35,19 @@ typedef enum {
 
 /* Configuration values for RA and DEC axes.
  * steps_per_15_degrees values are for Synta EQ-3 with dual-axis kit */
-axis axes[] = {
-    [RIGHT_ASCENSION] = {0, 0, 2 * 120 * 130, 4, 0, 13, 12, 11, A0, 6},
-    [DECLINATION] = {0, 0, 2 * 80 * 65, 0, 0, 10, 9, 8, A1, 5},
+static axis axes[] = {
+    [RIGHT_ASCENSION] = {
+        .steps_per_15_degrees = 2 * 120 * 130,
+        .step_pin = 13, .dir_pin = 12,
+        .input_analog_pin = A0, .enable_pin = 6,
+        .pot_min = 0, .pot_max = 1023,
+    },
+    [DECLINATION] = {
+        .steps_per_15_degrees = 2 * 80 * 65,
+        .step_pin = 10, .dir_pin = 9,
+        .input_analog_pin = A1, .enable_pin = 5,
+        .pot_min = 0, .pot_max = 1023,
+    },
 };
 
 /* Determine whether a step is due (current time is the same as or after next
@@ -88,7 +102,8 @@ void set_rate(axis_index i, urgency when) {
     const int rates[] = {-64, -32, -12, -4, -3, -2, -1,
                          0, 1, 2, 3, 4, 12, 32, 64};
     /* FIXME map() call needs to be calibrated with sensor range */
-    int new_rate = rates[map(analogRead(axes[i].input_analog_pin), 0, 1023,
+    int new_rate = rates[map(analogRead(axes[i].input_analog_pin),
+                         axes[i].pot_min, axes[i].pot_max,
                          0, array_max(rates))];
 
     /* RA always tracks at 1x sidereal relative to nominal rate */
@@ -150,7 +165,6 @@ void setup() {
         pinMode(axes[i].input_analog_pin, INPUT);
         pinMode(axes[i].step_pin, OUTPUT);
         pinMode(axes[i].dir_pin, OUTPUT);
-        pinMode(axes[i].microstep_pin, OUTPUT);
         pinMode(axes[i].enable_pin, OUTPUT);
 
         /* read_joystick() doesn't accept an axis index, but as long as it runs
