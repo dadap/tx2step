@@ -55,12 +55,12 @@ static axis axes[] = {
 
 /* Determine whether a step is due (current time is the same as or after next
  * due step). last_step is used as a reference point to handle overflow. */
-bool step_due(axis_index i, unsigned long now) {
+static inline bool step_due(axis_index i, unsigned long now) {
     return now - axes[i].last_step >= axes[i].next_step - axes[i].last_step;
 }
 
 /* Perform a step on axis i. */
-void do_step(axis_index i, urgency when) {
+static void do_step(axis_index i, urgency when) {
     /* DRV8834 requires a 1.9 µs minimum pulse duration;
      * delayMicroseconds() is not precise < 3 µs according to docs */
     const int PULSE_DURATION_US = 4;
@@ -91,7 +91,7 @@ void do_step(axis_index i, urgency when) {
 }
 
 /* Calculate microseconds per step at given rate */
-unsigned long us_per_step(axis_index i, int rate)
+static inline unsigned long us_per_step(axis_index i, int rate)
 {
     /* rate is given in units of 1/4 sidereal rate and may be negative;
      * number of microseconds needs to be a scalar value. */
@@ -101,7 +101,7 @@ unsigned long us_per_step(axis_index i, int rate)
 /* index of last array element */
 #define array_len(a) (sizeof(a) / sizeof(a[0]))
 
-void set_rate(axis_index i, urgency when) {
+static void set_rate(axis_index i, urgency when) {
     /* Table of tracking/setting rates, in units of 1/4 sidereal rate, e.g.,
      * a rate value of "12" represents 3x sidereal rate. */
     const int rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
@@ -152,7 +152,7 @@ const int MIN_ANALOG_READ_DELAY_US = 100;
  * last read, or an immediate read was requested. Alternate between reading
  * axes. The actual reading is performed in set_rate(); this function serves
  * to enforce timing and interleaving. */
-void read_joystick(urgency when)
+static void read_joystick(urgency when)
 {
     static axis_index next_read = RIGHT_ASCENSION;
     static unsigned long last_read_ms;
