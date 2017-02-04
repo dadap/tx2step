@@ -1,3 +1,5 @@
+#define DEBUG 0
+
 /* Microseconds per sidereal hour, used to calculate tracking rates.
  * The resulting calculations should lead to a tracking error on the order
  * of a second per sidereal day, which is in line with the error inherent to
@@ -7,6 +9,7 @@ const unsigned long sidereal_hour_us = 3590170483;
 /* Axis/motor attributes */
 typedef struct {
     /* permanent configuration attributes */
+    const char * const short_name; /* short name of axis */
     const unsigned long steps_per_15_degrees; /* steps per 15°/sidereal hour */
     const int step_pin; /* pin to drive stepper pulses */
     const int dir_pin; /* pin to set motor direction */
@@ -37,12 +40,14 @@ typedef enum {
  * steps_per_15_degrees values are for Synta EQ-3 with dual-axis kit */
 static axis axes[] = {
     [RIGHT_ASCENSION] = {
+        .short_name = "RA",
         .steps_per_15_degrees = 2 * 120 * 130,
         .step_pin = 13, .dir_pin = 12,
         .input_analog_pin = A0, .enable_pin = 6,
         .pot_min = 0, .pot_max = 1023,
     },
     [DECLINATION] = {
+        .short_name = "DEC",
         .steps_per_15_degrees = 2 * 80 * 65,
         .step_pin = 10, .dir_pin = 9,
         .input_analog_pin = A1, .enable_pin = 5,
@@ -134,14 +139,17 @@ void set_rate(axis_index i, urgency when) {
     }
 }
 
-/* Atmega328 DAC requires a minimum of 100ms between analog reads */
-const int MIN_ANALOG_READ_DELAY_MS = 100;
+/* Atmega328 ADC requires a minimum of 100µs between analog reads; we don't
+ * need quite that level of resolution, but we should still try to rate limit
+ * the reads somewhat */
+const int ANALOG_READ_DELAY_MS = 20;
+const int MIN_ANALOG_READ_DELAY_US = 100;
 
 /* Read joystick position and adjust tracking/setting rates accordingly.
- * Don't perform an analog read unless the minimum delay has elapsed since
- * the last read, or an immediate read was requested. Alternate between
- * reading axes. The actual reading is performed in set_rate(); this function
- * serves to enforce timing and interleaving. */
+ * Don't perform an analog read unless sufficient time has elapsed since the
+ * last read, or an immediate read was requested. Alternate between reading
+ * axes. The actual reading is performed in set_rate(); this function serves
+ * to enforce timing and interleaving. */
 void read_joystick(urgency when)
 {
     static axis_index next_read = RIGHT_ASCENSION;
@@ -150,17 +158,63 @@ void read_joystick(urgency when)
 
     /* Wait minimum delay before an immediate read */
     if (when == IMMEDIATE) {
-        delay(MIN_ANALOG_READ_DELAY_MS);
+        delayMicroseconds(MIN_ANALOG_READ_DELAY_US);
     }
 
-    if (when == IMMEDIATE || now - last_read_ms >= MIN_ANALOG_READ_DELAY_MS) {
+    if (when == IMMEDIATE || now - last_read_ms >= ANALOG_READ_DELAY_MS) {
         last_read_ms = now;
         set_rate(next_read, when);
         next_read = (next_read + 1) % NUM_AXES;
     }
 }
 
+static inline void print_axis_info(axis_index i)
+{
+    static int pot_min = 1023, pot_max = 0;
+    int pot_val;
+
+    delayMicroseconds(MIN_ANALOG_READ_DELAY_US);
+    pot_val = analogRead(axes[i].input_analog_pin);
+
+    if (pot_val > pot_max) {
+        pot_max = pot_val;
+    }
+
+    if (pot_val < pot_min) {
+        pot_min = pot_val;
+    }
+
+    Serial.print(axes[i].short_name);
+    Serial.print(" pot values - Current: ");
+    Serial.print(pot_val);
+    Serial.print(" Min: ");
+    Serial.print(pot_min);
+    Serial.print(" Max: ");
+    Serial.println(pot_max);
+    Serial.print("Current rate: ");
+    Serial.println(axes[i].current_rate);
+    Serial.print("µs per step: ");
+    Serial.println(axes[i].us_per_step);
+    Serial.println();
+}
+
+const int PRINT_INTERVAL_MS = 1000;
+
+static inline void print_status() {
+    static unsigned long last_print = 0;
+
+    if (last_print == 0 || millis() - last_print > PRINT_INTERVAL_MS) {
+        for (int i = 0; i < NUM_AXES; i++) {
+            print_axis_info(i);
+        }
+        last_print = millis();
+    }
+}
+
 void setup() {
+#if DEBUG
+    Serial.begin(9600);
+#endif
     for (int i = 0; i < NUM_AXES; i++) {
         pinMode(axes[i].input_analog_pin, INPUT);
         pinMode(axes[i].step_pin, OUTPUT);
@@ -177,5 +231,8 @@ void loop() {
     for (int i = 0; i < NUM_AXES; i++) {
         read_joystick(NORMAL);
         do_step(i, NORMAL);
+#if DEBUG
+        print_status();
+#endif
     }
 }
