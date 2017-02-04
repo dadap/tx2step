@@ -15,8 +15,6 @@ typedef struct {
     const int dir_pin; /* pin to set motor direction */
     const int input_analog_pin; /* pin to read analog input from joystick */
     const int enable_pin; /* pin to enable/disable driver */
-    const int pot_min; /* minimum value of joystick potentiometer */
-    const int pot_max; /* maximum value of joystick potentiometer */
 
     /* dynamic runtime variables */
     unsigned long last_step; /* µsec timestamp of most recent step */
@@ -44,14 +42,12 @@ static axis axes[] = {
         .steps_per_15_degrees = 2 * 120 * 130,
         .step_pin = 13, .dir_pin = 12,
         .input_analog_pin = A0, .enable_pin = 6,
-        .pot_min = 0, .pot_max = 1023,
     },
     [DECLINATION] = {
         .short_name = "DEC",
         .steps_per_15_degrees = 2 * 80 * 65,
         .step_pin = 10, .dir_pin = 9,
         .input_analog_pin = A1, .enable_pin = 5,
-        .pot_min = 0, .pot_max = 1023,
     },
 };
 
@@ -99,17 +95,19 @@ unsigned long us_per_step(axis_index i, int rate)
 }
 
 /* index of last array element */
-#define array_max(a) (sizeof(a) / sizeof(a[0]) - 1)
+#define array_len(a) (sizeof(a) / sizeof(a[0]))
 
 void set_rate(axis_index i, urgency when) {
     /* Table of tracking/setting rates, in units of 1/4 sidereal rate, e.g.,
      * a rate value of "12" represents 3x sidereal rate. */
     const int rates[] = {-64, -32, -12, -4, -3, -2, -1,
                          0, 1, 2, 3, 4, 12, 32, 64};
-    /* FIXME map() call needs to be calibrated with sensor range */
-    int new_rate = rates[map(analogRead(axes[i].input_analog_pin),
-                         axes[i].pot_min, axes[i].pot_max,
-                         0, array_max(rates))];
+    int new_rate = rates[constrain(
+                             map(analogRead(axes[i].input_analog_pin),
+                                 0, 1023,
+                                 0, array_len(rates)),
+                             0, array_len(rates) - 1
+                         )];
 
     /* RA always tracks at 1x sidereal relative to nominal rate */
     if (i == RIGHT_ASCENSION) {
