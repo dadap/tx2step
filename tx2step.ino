@@ -41,15 +41,15 @@ static axis axes[] = {
         .short_name = "RA",
         .steps_per_15_degrees = 2 * 120 * 130,
         .step_pin = 13, .dir_pin = 12,
-        .input_analog_pin = A0, .enable_pin = 11,
+        .input_analog_pin = A0, .enable_pin = -1, /* RA is always on */
     },
     [DECLINATION] = {
         .short_name = "DEC",
          /* XXX this is actually wrong because it doesn't account for the
           * clutch, but that's sort of okay, because it moves really fast */
         .steps_per_15_degrees = 2 * 80 * 65,
-        .step_pin = 10, .dir_pin = 9,
-        .input_analog_pin = A1, .enable_pin = 8,
+        .step_pin = 11, .dir_pin = 10,
+        .input_analog_pin = A1, .enable_pin = 9,
     },
 };
 
@@ -130,9 +130,11 @@ static void set_rate(axis_index i, urgency when) {
 
         /* Enable/disable motor and cache us_per_step value */
         if (new_rate != 0) {
-            digitalWrite(axes[i].enable_pin, HIGH);
+            if (axes[i].enable_pin >= 0) {
+                digitalWrite(axes[i].enable_pin, HIGH);
+            }
             axes[i].us_per_step = us_per_step(i, new_rate);
-        } else {
+        } else if (axes[i].enable_pin >= 0) {
             digitalWrite(axes[i].enable_pin, LOW);
         }
 
@@ -221,7 +223,9 @@ void setup() {
         pinMode(axes[i].input_analog_pin, INPUT);
         pinMode(axes[i].step_pin, OUTPUT);
         pinMode(axes[i].dir_pin, OUTPUT);
-        pinMode(axes[i].enable_pin, OUTPUT);
+        if (axes[i].enable_pin >= 0) {
+            pinMode(axes[i].enable_pin, OUTPUT);
+        }
 
         /* read_joystick() doesn't accept an axis index, but as long as it runs
          * once per axis with IMMEDIATE urgency, it will initialize all axes */
