@@ -138,6 +138,7 @@ static void set_rate(axis_index i, urgency when) {
         /* Enable/disable motor and cache us_per_step value */
         if (new_rate != 0) {
             digitalWrite(axes[i].enable_pin, HIGH);
+            delay(1); /* DRV8834 needs 1ms delay between wake and step */
             axes[i].us_per_step = us_per_step(i, new_rate);
         } else {
             digitalWrite(axes[i].enable_pin, LOW);
