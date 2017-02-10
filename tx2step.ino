@@ -1,5 +1,12 @@
 #define DEBUG 0
 
+#if (64 / clockCyclesPerMicrosecond()) * clockCyclesPerMicrosecond() != 64 || \
+    F_CPU % 1000000L != 0
+#error clockCyclesPerMicrosecond() does not divide evenly into 64: tracking \
+rate may be inaccurate. Change this error into a warning if you wish to \
+continue anyway.
+#endif
+
 /* Microseconds per sidereal hour, used to calculate tracking rates.
  * The resulting calculations should lead to a tracking error on the order
  * of a second per sidereal day, which is in line with the error inherent to
