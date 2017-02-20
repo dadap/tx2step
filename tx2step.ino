@@ -1,4 +1,4 @@
-#define DEBUG 0
+#define DEBUG 1
 
 #if (64 / clockCyclesPerMicrosecond()) * clockCyclesPerMicrosecond() != 64 || \
     F_CPU % 1000000L != 0
@@ -193,6 +193,18 @@ static void set_rates(analog_index sensor, urgency when) {
             do_step(i, when == INITIAL ? INITIAL : IMMEDIATE);
         }
 
+#if DEBUG
+        Serial.print("Sensor: ");
+        Serial.print(sensor);
+        Serial.print(" New value: ");
+        Serial.print(new_value);
+        Serial.print(" RA us/step: ");
+        Serial.print(axes[RIGHT_ASCENSION].current_rate ?
+                         axes[RIGHT_ASCENSION].us_per_step : 0);
+        Serial.print(" DEC us/step: ");
+        Serial.println(axes[DECLINATION].current_rate ?
+                         axes[DECLINATION].us_per_step : 0);
+#endif
     }
 }
 
@@ -225,49 +237,6 @@ static void read_analog_sensor(urgency when)
     }
 }
 
-static inline void print_axis_info(axis_index i)
-{
-    static int pot_min = 1023, pot_max = 0;
-    int pot_val;
-
-    delayMicroseconds(MIN_ANALOG_READ_DELAY_US);
-    pot_val = analogRead(sensors[i].pin);
-
-    if (pot_val > pot_max) {
-        pot_max = pot_val;
-    }
-
-    if (pot_val < pot_min) {
-        pot_min = pot_val;
-    }
-
-    Serial.print(axes[i].short_name);
-    Serial.print(" pot values - Current: ");
-    Serial.print(pot_val);
-    Serial.print(" Min: ");
-    Serial.print(pot_min);
-    Serial.print(" Max: ");
-    Serial.println(pot_max);
-    Serial.print("Current rate: ");
-    Serial.println(axes[i].current_rate);
-    Serial.print("µs per step: ");
-    Serial.println(axes[i].us_per_step);
-    Serial.println();
-}
-
-const int PRINT_INTERVAL_MS = 1000;
-
-static inline void print_status() {
-    static unsigned long last_print = 0;
-
-    if (last_print == 0 || millis() - last_print > PRINT_INTERVAL_MS) {
-        for (int i = 0; i < NUM_AXES; i++) {
-            print_axis_info(i);
-        }
-        last_print = millis();
-    }
-}
-
 void setup() {
 #if DEBUG
     Serial.begin(9600);
@@ -287,8 +256,5 @@ void loop() {
     for (int i = 0; i < NUM_AXES; i++) {
         read_analog_sensor(NORMAL);
         do_step(i, NORMAL);
-#if DEBUG
-        print_status();
-#endif
     }
 }
