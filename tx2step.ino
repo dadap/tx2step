@@ -27,6 +27,7 @@ typedef struct {
 typedef struct {
     const int pin; /* pin where value will be read */
     const int range_max; /* maximum value to map to */
+    bool affects_tracking; /* Whether the value influences the tracking rate */
     int mapped_value; /* storage for most recently read and mapped value */
 } analog_sensor;
 
@@ -40,6 +41,7 @@ typedef enum {
     JOYSTICK_RA = RIGHT_ASCENSION,
     JOYSTICK_DEC = DECLINATION,
     TRACKING_RATE,
+    GUIDING_RATE,
     NUM_ANALOG_SENSORS
 } analog_index;
 
@@ -84,10 +86,14 @@ static axis axes[] = {
     },
 };
 
-/* Table of tracking/setting rates, in units of 1/4 sidereal rate, e.g.,
+/* Table of setting rates, in units of 1/4 sidereal rate, e.g.,
  * a rate value of "12" represents 3x sidereal rate. */
 const int setting_rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
                              0, 1, 2, 3, 4, 12, 32, 64, 128};
+
+/* Table of guiding rates, in same units as setting rates. Duplicated values
+ * for rates < 1x sidereal are to ensure that 1x sidereal is at the midpoint. */
+const int guiding_rates[] = {1, 1, 2, 2, 3, 3, 4, 6, 8, 12, 32, 64, 128};
 
 #define array_len(a) (sizeof(a) / sizeof(a[0]))
 
@@ -95,12 +101,19 @@ const int setting_rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
 static analog_sensor sensors[] = {
     [JOYSTICK_RA] = {
         .pin = A0, .range_max = array_len(setting_rates),
+        .affects_tracking = true,
     },
     [JOYSTICK_DEC] = {
         .pin = A1, .range_max = array_len(setting_rates),
+        .affects_tracking = true,
     },
     [TRACKING_RATE] = {
         .pin = A2, .range_max = NUM_TRACKING_RATES,
+        .affects_tracking = true,
+    },
+    [GUIDING_RATE] = {
+        .pin = A3, .range_max = array_len(guiding_rates),
+        .affects_tracking = false,
     },
 };
 
@@ -162,35 +175,37 @@ static void set_rates(analog_index sensor, urgency when) {
         new_value != sensors[sensor].mapped_value) {
         sensors[sensor].mapped_value = new_value;
 
-        for (int i = 0; i < NUM_AXES; i++) {
-            int new_rate = setting_rates[sensors[i].mapped_value];
+        if (sensors[sensor].affects_tracking) {
+            for (int i = 0; i < NUM_AXES; i++) {
+                int new_rate = setting_rates[sensors[i].mapped_value];
 
-            /* RA always tracks at 1x sidereal relative to nominal rate */
-            if (i == RIGHT_ASCENSION) {
-                new_rate += 4;
+                /* RA always tracks at 1x sidereal relative to nominal rate */
+                if (i == RIGHT_ASCENSION) {
+                    new_rate += 4;
+                }
+
+                axes[i].current_rate = new_rate;
+
+                /* Set direction (FIXME read direction toggle switch */
+                if (new_rate < 0) {
+                    digitalWrite(axes[i].dir_pin, LOW);
+                } else {
+                    digitalWrite(axes[i].dir_pin, HIGH);
+                }
+
+                /* Enable/disable motor and cache us_per_step value */
+                if (new_rate != 0) {
+                    digitalWrite(axes[i].enable_pin, HIGH);
+                    delay(1); /* DRV8834 needs 1ms delay on wake before step */
+                    axes[i].us_per_step = us_per_step(i, new_rate);
+                } else {
+                    digitalWrite(axes[i].enable_pin, LOW);
+                }
+
+                /* Step immediately and override next scheduled step, unless we
+                 * are just initializing the sensor. */
+                do_step(i, when == INITIAL ? INITIAL : IMMEDIATE);
             }
-
-            axes[i].current_rate = new_rate;
-
-            /* Set direction (FIXME read direction toggle switch */
-            if (new_rate < 0) {
-                digitalWrite(axes[i].dir_pin, LOW);
-            } else {
-                digitalWrite(axes[i].dir_pin, HIGH);
-            }
-
-            /* Enable/disable motor and cache us_per_step value */
-            if (new_rate != 0) {
-                digitalWrite(axes[i].enable_pin, HIGH);
-                delay(1); /* DRV8834 needs 1ms delay between wake and step */
-                axes[i].us_per_step = us_per_step(i, new_rate);
-            } else {
-                digitalWrite(axes[i].enable_pin, LOW);
-            }
-
-            /* Step immediately and override next scheduled step, unless we are
-             * just initializing the sensor. */
-            do_step(i, when == INITIAL ? INITIAL : IMMEDIATE);
         }
 
 #if DEBUG
@@ -211,7 +226,7 @@ static void set_rates(analog_index sensor, urgency when) {
 /* Atmega328 ADC requires a minimum of 100µs between analog reads; we don't
  * need quite that level of resolution, but we should still try to rate limit
  * the reads somewhat */
-const int ANALOG_READ_DELAY_MS = 20;
+const int ANALOG_READ_DELAY_MS = 10;
 const int MIN_ANALOG_READ_DELAY_US = 100;
 
 /* Read sensor values and adjust tracking/setting rates accordingly.
