@@ -49,9 +49,12 @@ typedef struct {
 
 /* Analog sensor attributes */
 typedef struct {
+    /* permanent configuration attributes */
     const int pin; /* pin where value will be read */
     const int range_max; /* maximum value to map to */
-    bool affects_tracking; /* Whether the value influences the tracking rate */
+    const bool affects_tracking; /* Whether sensor influences tracking rate */
+
+    /* dynamic runtime variables */
     int mapped_value; /* storage for most recently read and mapped value */
 } analog_sensor;
 
