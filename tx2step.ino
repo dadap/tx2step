@@ -119,12 +119,14 @@ static analog_sensor sensors[] = {
 
 /* Determine whether a step is due (current time is the same as or after next
  * due step). last_step is used as a reference point to handle overflow. */
-static inline bool step_due(axis_index i, unsigned long now) {
+static inline bool step_due(axis_index i, unsigned long now)
+{
     return now - axes[i].last_step >= axes[i].next_step - axes[i].last_step;
 }
 
 /* Perform a step on axis i if one is needed. */
-static void do_step(axis_index i, urgency when) {
+static void do_step(axis_index i, urgency when)
+{
     /* DRV8834 requires a 1.9 µs minimum pulse duration;
      * delayMicroseconds() is not precise < 3 µs according to docs */
     const int PULSE_DURATION_US = 4;
@@ -167,7 +169,8 @@ static inline unsigned long us_per_step(axis_index i, int rate)
              axes[i].steps_per_15_degrees) * 4) / abs(rate);
 }
 
-static void set_rates(analog_index sensor, urgency when) {
+static void set_rates(analog_index sensor, urgency when)
+{
     int new_value = map(analogRead(sensors[sensor].pin),
                         0, 1024, 0, sensors[sensor].range_max);
 
@@ -252,7 +255,8 @@ static void read_analog_sensor(urgency when)
     }
 }
 
-void setup() {
+void setup()
+{
 #if DEBUG
     Serial.begin(9600);
 #endif
@@ -267,7 +271,8 @@ void setup() {
     }
 }
 
-void loop() {
+void loop()
+{
     for (int i = 0; i < NUM_AXES; i++) {
         read_analog_sensor(NORMAL);
         do_step(i, NORMAL);
