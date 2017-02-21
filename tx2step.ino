@@ -11,7 +11,7 @@ continue anyway.
 typedef struct {
     /* permanent configuration attributes */
     const char * const short_name; /* short name of axis */
-    const unsigned long steps_per_15_degrees; /* steps per 15°/sidereal hour */
+    const unsigned long steps_per_15_degrees; /* steps per 15° (1 hour) */
     const int step_pin; /* pin to drive stepper pulses */
     const int dir_pin; /* pin to set motor direction */
     const int enable_pin; /* pin to enable/disable driver */
@@ -19,7 +19,7 @@ typedef struct {
     /* dynamic runtime variables */
     unsigned long last_step; /* µsec timestamp of most recent step */
     unsigned long next_step; /* µsec timestamp of next scheduled step */
-    int current_rate; /* tracking/setting rate in units of 1/4 sidereal rate */
+    int current_rate; /* tracking/setting rate in units of 4x tracking rate */
     unsigned long us_per_step; /* µs per step at current rate (cached value) */
 } axis;
 
@@ -86,13 +86,13 @@ static axis axes[] = {
     },
 };
 
-/* Table of setting rates, in units of 1/4 sidereal rate, e.g.,
- * a rate value of "12" represents 3x sidereal rate. */
+/* Table of setting rates, in units of 4x tracking rate, e.g.,
+ * a rate value of "12" represents 3x tracking rate. */
 const int setting_rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
                              0, 1, 2, 3, 4, 12, 32, 64, 128};
 
 /* Table of guiding rates, in same units as setting rates. Duplicated values
- * for rates < 1x sidereal are to ensure that 1x sidereal is at the midpoint. */
+ * for rates < 1x tracking are to ensure that 1x tracking is at the midpoint. */
 const int guiding_rates[] = {1, 1, 2, 2, 3, 3, 4, 6, 8, 12, 32, 64, 128};
 
 #define array_len(a) (sizeof(a) / sizeof(a[0]))
@@ -163,7 +163,7 @@ static void do_step(axis_index i, urgency when)
 /* Calculate microseconds per step at given rate */
 static inline unsigned long us_per_step(axis_index i, int rate)
 {
-    /* rate is given in units of 1/4 sidereal rate and may be negative;
+    /* rate is given in units of 4x tracking rate and may be negative;
      * number of microseconds needs to be a scalar value. */
     return ((us_per_15_degrees[sensors[TRACKING_RATE].mapped_value] /
              axes[i].steps_per_15_degrees) * 4) / abs(rate);
@@ -182,7 +182,7 @@ static void set_rates(analog_index sensor, urgency when)
             for (int i = 0; i < NUM_AXES; i++) {
                 int new_rate = setting_rates[sensors[i].mapped_value];
 
-                /* RA always tracks at 1x sidereal relative to nominal rate */
+                /* RA always tracks at +1x relative to nominal rate */
                 if (i == RIGHT_ASCENSION) {
                     new_rate += 4;
                 }
