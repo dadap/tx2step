@@ -243,6 +243,10 @@ static void read_analog_sensor(urgency when)
     static unsigned long last_read_ms;
     unsigned long now = millis();
 
+    if (when == INITIAL) {
+        pinMode(sensors[next_read].pin, INPUT);
+    }
+
     /* Wait minimum delay before an immediate read or when initializing */
     if (when == IMMEDIATE || when == INITIAL) {
         delayMicroseconds(MIN_ANALOG_READ_DELAY_US);
