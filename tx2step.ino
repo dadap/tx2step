@@ -177,8 +177,11 @@ static void do_step(axis_index i, urgency when)
 
             /* Reset next_step based on current time for IMMEDIATE steps or
              * when initializing; increment next_step by us_per_step for NORMAL
-             * steps to allow for catching up to any missed steps */
-            if (when == IMMEDIATE || when == INITIAL) {
+             * steps to allow for catching up to any missed steps. Don't bother
+             * trying to catch up to missed steps when step rate > 50Hz, the
+             * precision of step timing isn't critical at these speeds */
+            if (when == IMMEDIATE || when == INITIAL ||
+                axes[i].us_per_step < 20000) {
                 axes[i].next_step = now + axes[i].us_per_step;
             } else {
                 axes[i].next_step += axes[i].us_per_step;
