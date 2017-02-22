@@ -307,8 +307,9 @@ void setup()
 
 void loop()
 {
+    read_analog_sensor(NORMAL);
+
     for (int i = 0; i < NUM_AXES; i++) {
-        read_analog_sensor(NORMAL);
         do_step(i, NORMAL);
     }
 }
