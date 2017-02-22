@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-#define DEBUG 1
+#define DEBUG 0
 
 #if (64 / clockCyclesPerMicrosecond()) * clockCyclesPerMicrosecond() != 64 || \
     F_CPU % 1000000L != 0
