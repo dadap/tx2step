@@ -1,6 +1,9 @@
 Texas Two Step: A dual axis motor controller for equatorial telescope mounts
 ============================================================================
 
+![Texas Two Step breadboard prototype controlling an unloaded Orion Astroview]
+(https://github.com/dadap/tx2step/raw/master/img/tx2step-breadboard-proto.jpg)
+
 Introduction
 ------------
 
