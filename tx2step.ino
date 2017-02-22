@@ -43,7 +43,7 @@ typedef struct {
     /* dynamic runtime variables */
     unsigned long last_step; /* µsec timestamp of most recent step */
     unsigned long next_step; /* µsec timestamp of next scheduled step */
-    int current_rate; /* tracking/setting rate in units of 4x tracking rate */
+    int current_rate; /* tracking/setting rate in units of 1/4 tracking rate */
     unsigned long us_per_step; /* µs per step at current rate (cached value) */
 } axis;
 
@@ -113,7 +113,7 @@ static axis axes[] = {
     },
 };
 
-/* Table of setting rates, in units of 4x tracking rate, e.g.,
+/* Table of setting rates, in units of 1/4 tracking rate, e.g.,
  * a rate value of "12" represents 3x tracking rate. */
 const int setting_rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
                              0, 1, 2, 3, 4, 12, 32, 64, 128};
@@ -190,7 +190,7 @@ static void do_step(axis_index i, urgency when)
 /* Calculate microseconds per step at given rate */
 static inline unsigned long us_per_step(axis_index i, int rate)
 {
-    /* rate is given in units of 4x tracking rate and may be negative;
+    /* rate is given in units of 1/4 tracking rate and may be negative;
      * number of microseconds needs to be a scalar value. */
     return ((us_per_15_degrees[sensors[TRACKING_RATE].mapped_value] /
              axes[i].steps_per_15_degrees) * 4) / abs(rate);
