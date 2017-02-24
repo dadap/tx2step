@@ -34,7 +34,6 @@ continue anyway.
 /* Axis/motor attributes */
 typedef struct {
     /* permanent configuration attributes */
-    const char * const short_name; /* short name of axis */
     const unsigned long steps_per_15_degrees; /* steps per 15° (1 hour) */
     const int step_pin; /* pin to drive stepper pulses */
     const int dir_pin; /* pin to set motor direction */
@@ -100,12 +99,10 @@ const unsigned long us_per_15_degrees[] = {
  * steps_per_15_degrees values are for Synta EQ-3 with dual-axis kit */
 static axis axes[] = {
     [RIGHT_ASCENSION] = {
-        .short_name = "RA",
         .steps_per_15_degrees = 2 * 120 * 130,
         .step_pin = 2, .dir_pin = 3, .enable_pin = 4,
     },
     [DECLINATION] = {
-        .short_name = "DEC",
          /* XXX this is actually wrong because it doesn't account for the
           * clutch, but that's sort of okay, because it moves really fast */
         .steps_per_15_degrees = 2 * 80 * 65,
