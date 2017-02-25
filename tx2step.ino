@@ -1,6 +1,7 @@
 /*
  * Texas Two Step:
  *     A dual axis stepper motor controller for equatorial telescope mounts
+ *
  * Copyright (c) 2017 Daniel Dadap
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
