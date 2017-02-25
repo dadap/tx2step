@@ -139,7 +139,7 @@ static st4_input st4_inputs[] = {
 /* Table of setting rates, in units of 1/4 tracking rate, e.g.,
  * a rate value of "12" represents 3x tracking rate. */
 const int setting_rates[] = {-128, -64, -32, -12, -4, -3, -2, -1,
-                             0, 1, 2, 3, 4, 12, 32, 64, 128};
+                             0, 0, 1, 2, 3, 4, 12, 32, 64, 128};
 
 /* Table of guiding rates, in same units as setting rates. Duplicated values
  * for rates < 1x tracking are to ensure that 1x tracking is at the midpoint. */
