@@ -38,8 +38,6 @@ A schematic and PCB layout should eventually be added to this repository.
 
 The following features are not yet implemented:
 
-* ST-4 support is physically wired up on the prototype, but needs to be written
-  into the microcontroller software as well.
 * Directional switching not implemented; RA tracking direction is dependent on
   the order of stepper motor wiring to the driver boards. The final design is
   intended to allow switching between northern and southern hemisphere operation

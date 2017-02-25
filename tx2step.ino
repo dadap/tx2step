@@ -32,32 +32,6 @@ rate may be inaccurate. Change this error into a warning if you wish to \
 continue anyway.
 #endif
 
-/* Axis/motor attributes */
-typedef struct {
-    /* permanent configuration attributes */
-    const unsigned long steps_per_15_degrees; /* steps per 15° (1 hour) */
-    const int step_pin; /* pin to drive stepper pulses */
-    const int dir_pin; /* pin to set motor direction */
-    const int enable_pin; /* pin to enable/disable driver */
-
-    /* dynamic runtime variables */
-    unsigned long last_step; /* µsec timestamp of most recent step */
-    unsigned long next_step; /* µsec timestamp of next scheduled step */
-    int current_rate; /* tracking/setting rate in units of 1/4 tracking rate */
-    unsigned long us_per_step; /* µs per step at current rate (cached value) */
-} axis;
-
-/* Analog sensor attributes */
-typedef struct {
-    /* permanent configuration attributes */
-    const int pin; /* pin where value will be read */
-    const int range_max; /* maximum value to map to */
-    const bool affects_tracking; /* Whether sensor influences tracking rate */
-
-    /* dynamic runtime variables */
-    int mapped_value; /* storage for most recently read and mapped value */
-} analog_sensor;
-
 typedef enum {
     RIGHT_ASCENSION = 0,
     DECLINATION = 1,
@@ -85,6 +59,49 @@ typedef enum {
     NUM_TRACKING_RATES
 } tracking_rate;
 
+typedef enum {
+    NEGATIVE,
+    POSITIVE,
+} direction;
+
+/* Axis/motor attributes */
+typedef struct {
+    /* permanent configuration attributes */
+    const unsigned long steps_per_15_degrees; /* steps per 15° (1 hour) */
+    const int step_pin; /* pin to drive stepper pulses */
+    const int dir_pin; /* pin to set motor direction */
+    const int enable_pin; /* pin to enable/disable driver */
+
+    /* dynamic runtime variables */
+    unsigned long last_step; /* µsec timestamp of most recent step */
+    unsigned long next_step; /* µsec timestamp of next scheduled step */
+    int current_rate; /* tracking/setting rate in units of 1/4 tracking rate */
+    unsigned long us_per_step; /* µs per step at current rate (cached value) */
+} axis;
+
+/* Analog sensor attributes */
+typedef struct {
+    /* permanent configuration attributes */
+    const int pin; /* pin where value will be read */
+    const int range_max; /* maximum value to map to */
+    const bool affects_tracking; /* Whether sensor influences tracking rate */
+
+    /* dynamic runtime variables */
+    int mapped_value; /* storage for most recently read and mapped value */
+} analog_sensor;
+
+/* ST-4 configuration */
+typedef struct {
+    /* permanent configuration attributes */
+    const int pin; /* pin where value will be read */
+    const axis_index axis; /* axis driven by pin */
+    const direction dir; /* direction to drive axis */
+
+    /* dynamic runtime variables */
+    unsigned long last_changed; /* milliscond timestamp of last value change */
+    bool undebounced_value; /* pending state while debouncing */
+    bool value; /* most recent debounced value */
+} st4_input;
 
 /* Microseconds per 15 degrees, used to calculate tracking rates.
  * The resulting calculations should lead to a tracking error on the order
@@ -109,6 +126,14 @@ static axis axes[] = {
         .steps_per_15_degrees = 2 * 80 * 65,
         .step_pin = 5, .dir_pin = 6, .enable_pin = 7,
     },
+};
+
+/* ST-4 pin mappings */
+static st4_input st4_inputs[] = {
+    { .pin = 10, .axis = RIGHT_ASCENSION, .dir = POSITIVE, },
+    { .pin = 11, .axis = DECLINATION, .dir = POSITIVE, },
+    { .pin = 12, .axis = DECLINATION, .dir = NEGATIVE, },
+    { .pin = 13, .axis = RIGHT_ASCENSION, .dir = NEGATIVE, },
 };
 
 /* Table of setting rates, in units of 1/4 tracking rate, e.g.,
@@ -197,7 +222,42 @@ static inline unsigned long us_per_step(axis_index i, int rate)
              axes[i].steps_per_15_degrees) * 4) / abs(rate);
 }
 
-static void set_rates(analog_index sensor, urgency when)
+/* Set the tracking, setting, or guiding rate on the given axis. Rates are
+ * expressed in units of 1/4 the tracking rate. */
+static void set_rate(axis_index i, int new_rate, urgency when)
+{
+    /* RA always tracks at +1x relative to nominal rate */
+    if (i == RIGHT_ASCENSION) {
+        new_rate += 4;
+    }
+
+    if (axes[i].current_rate != new_rate) {
+        axes[i].current_rate = new_rate;
+
+        /* Set direction (FIXME read direction toggle switch */
+        if (new_rate < 0) {
+            digitalWrite(axes[i].dir_pin, LOW);
+        } else {
+            digitalWrite(axes[i].dir_pin, HIGH);
+        }
+
+        /* Enable/disable motor and cache us_per_step value */
+        if (new_rate != 0) {
+            digitalWrite(axes[i].enable_pin, HIGH);
+            delay(1); /* DRV8834 needs 1ms delay on wake before step */
+            axes[i].us_per_step = us_per_step(i, new_rate);
+        } else {
+                digitalWrite(axes[i].enable_pin, LOW);
+        }
+
+        /* Step immediately and override next scheduled step,
+         * unless we are just initializing a sensor. */
+        do_step(i, when == INITIAL ? INITIAL : IMMEDIATE);
+    }
+}
+
+/* Set rates based on the updated value of an analog sensor */
+static void analog_set_rates(analog_index sensor, urgency when)
 {
     int new_value = map(analogRead(sensors[sensor].pin),
                         0, 1024, 0, sensors[sensor].range_max);
@@ -208,34 +268,7 @@ static void set_rates(analog_index sensor, urgency when)
 
         if (sensors[sensor].affects_tracking) {
             for (int i = 0; i < NUM_AXES; i++) {
-                int new_rate = setting_rates[sensors[i].mapped_value];
-
-                /* RA always tracks at +1x relative to nominal rate */
-                if (i == RIGHT_ASCENSION) {
-                    new_rate += 4;
-                }
-
-                axes[i].current_rate = new_rate;
-
-                /* Set direction (FIXME read direction toggle switch */
-                if (new_rate < 0) {
-                    digitalWrite(axes[i].dir_pin, LOW);
-                } else {
-                    digitalWrite(axes[i].dir_pin, HIGH);
-                }
-
-                /* Enable/disable motor and cache us_per_step value */
-                if (new_rate != 0) {
-                    digitalWrite(axes[i].enable_pin, HIGH);
-                    delay(1); /* DRV8834 needs 1ms delay on wake before step */
-                    axes[i].us_per_step = us_per_step(i, new_rate);
-                } else {
-                    digitalWrite(axes[i].enable_pin, LOW);
-                }
-
-                /* Step immediately and override next scheduled step, unless we
-                 * are just initializing the sensor. */
-                do_step(i, when == INITIAL ? INITIAL : IMMEDIATE);
+                set_rate(i, setting_rates[sensors[i].mapped_value], when);
             }
         }
 
@@ -251,6 +284,38 @@ static void set_rates(analog_index sensor, urgency when)
         Serial.println(axes[DECLINATION].current_rate ?
                          axes[DECLINATION].us_per_step : 0);
 #endif
+    }
+}
+
+/* Calculate the effective rate driven by an ST-4 input, scaled by the value of
+ * the guiding rate potentiometer. */
+static int scale_st4_rate(int st4_index)
+{
+    int rate = guiding_rates[sensors[GUIDING_RATE].mapped_value];
+
+    if (st4_inputs[st4_index].dir == NEGATIVE) {
+        rate *= -1;
+    }
+
+    return rate;
+}
+
+/* Set guiding rates based on ST-4 input. Simultaneous inputs in opposing
+ * directions on the same axis will cancel each other out. */
+static void st4_set_rates(void)
+{
+    int net_rates[NUM_AXES];
+
+    memset(net_rates, 0, sizeof(int) * NUM_AXES);
+
+    for (int i = 0; i < array_len(st4_inputs); i++) {
+        if (st4_inputs[i].value == true) {
+            net_rates[st4_inputs[i].axis] += scale_st4_rate(i);
+        }
+    }
+
+    for (int i = 0; i < NUM_AXES; i++) {
+        set_rate(i, net_rates[i], NORMAL);
     }
 }
 
@@ -282,9 +347,51 @@ static void read_analog_sensor(urgency when)
 
     if (when == IMMEDIATE || now - last_read_ms >= ANALOG_READ_DELAY_MS) {
         last_read_ms = now;
-        set_rates(next_read, when);
+        analog_set_rates(next_read, when);
         next_read = (next_read + 1) % NUM_ANALOG_SENSORS;
     }
+}
+
+/* Debounce ST-4 input. This may not be necessary for actual ST-4 guiders, but
+ * digital hand control interfaces over ST-4, and may need switch debouncing. */
+static void debounce_input(void)
+{
+    const int debounce_delay_ms = 20;
+
+    for (int i = 0; i < array_len(st4_inputs); i++) {
+        unsigned long now = millis();
+        /* ST-4 input pins are pulled up high and short to ground when active */
+        bool current_value = (digitalRead(st4_inputs[i].pin) == LOW);
+
+        if (current_value != st4_inputs[i].undebounced_value) {
+            st4_inputs[i].last_changed = now;
+            st4_inputs[i].undebounced_value = current_value;
+            continue;
+        }
+
+        if (now - st4_inputs[i].last_changed >= debounce_delay_ms &&
+            st4_inputs[i].value != st4_inputs[i].undebounced_value) {
+            st4_inputs[i].value = st4_inputs[i].undebounced_value;
+#if DEBUG
+            Serial.print("ST4 pin ");
+            Serial.print(i);
+            Serial.print(": ");
+            Serial.println(st4_inputs[i].value);
+#endif
+        }
+    }
+}
+
+/* Returns true if the joystick is in a neutral position. */
+static bool joystick_neutral(void)
+{
+    bool ret = true;
+
+    for (int i = 0; i < NUM_AXES; i++) {
+        ret &= (setting_rates[sensors[i].mapped_value] == 0);
+    }
+
+    return ret;
 }
 
 void setup()
@@ -301,11 +408,21 @@ void setup()
     for (int i = 0; i < NUM_ANALOG_SENSORS; i++) {
         read_analog_sensor(INITIAL);
     }
+
+    for (int i = 0; i < array_len(st4_inputs); i++) {
+        pinMode(st4_inputs[i].pin, INPUT_PULLUP);
+    }
 }
 
 void loop()
 {
     read_analog_sensor(NORMAL);
+    debounce_input();
+
+    /* Joystick input overrides ST-4 input. */
+    if (joystick_neutral()) {
+        st4_set_rates();
+    }
 
     for (int i = 0; i < NUM_AXES; i++) {
         do_step(i, NORMAL);
