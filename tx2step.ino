@@ -43,6 +43,7 @@ typedef enum {
     JOYSTICK_DEC = DECLINATION,
     TRACKING_RATE,
     GUIDING_RATE,
+    CHARGER_STATUS,
     NUM_ANALOG_SENSORS
 } analog_index;
 
@@ -53,11 +54,24 @@ typedef enum {
 } urgency;
 
 typedef enum {
-    LUNAR = 0,
-    SOLAR,
-    SIDEREAL,
+    TRISTATE_LOW = 0,
+    TRISTATE_HI_Z = 1,
+    TRISTATE_HIGH = 2,
+} tristate_value;
+
+typedef enum {
+    LUNAR = TRISTATE_LOW,
+    SOLAR = TRISTATE_HI_Z,
+    SIDEREAL = TRISTATE_HIGH,
     NUM_TRACKING_RATES
 } tracking_rate;
+
+typedef enum {
+    CHARGE_IN_PROGRESS = TRISTATE_LOW,
+    CHARGE_NO_BATTERY = TRISTATE_HI_Z,
+    CHARGE_COMPLETE = TRISTATE_HIGH,
+    NUM_CHARGE_STATES
+} charge_state;
 
 typedef enum {
     NEGATIVE,
@@ -165,7 +179,13 @@ static analog_sensor sensors[] = {
         .pin = A3, .range_max = array_len(guiding_rates),
         .affects_tracking = false,
     },
+    [CHARGER_STATUS] = {
+        .pin = A4, .range_max = NUM_CHARGE_STATES,
+        .affects_tracking = false,
+    }
 };
+
+const int charge_state_led_pwm_pin = 9;
 
 /* Determine whether a step is due (current time is the same as or after next
  * due step). last_step is used as a reference point to handle overflow. */
@@ -394,6 +414,50 @@ static bool joystick_neutral(void)
     return ret;
 }
 
+/* Set the brightness of the charge status LED based on charge state:
+ *   - Pulse LED when charging in progress
+ *   - Solid LED when charge complete
+ *   - Blinking LED on battery fault
+ *   - Unlit LED when no AC source
+ * TODO: need to distinguish between battery fault and unplugged DC source;
+ * currently, the LED will blink in both cases. */
+static void update_charge_led(urgency when)
+{
+    const int cycle_duration = 2048;
+    unsigned long now = millis() % cycle_duration;
+    static int led_value;
+    int new_led_value;
+
+    switch(sensors[CHARGER_STATUS].mapped_value) {
+        case CHARGE_IN_PROGRESS:
+            int pulse_now;
+
+            if (now > cycle_duration / 2) {
+                pulse_now = cycle_duration / 2 - now;
+            } else {
+                pulse_now = now;
+            }
+            new_led_value = map(pulse_now, 0, cycle_duration / 2, 0, 256);
+            break;
+        case CHARGE_COMPLETE:
+            new_led_value = 255;
+            break;
+        default:
+            if (now < cycle_duration / 2 &&
+                now % (cycle_duration / 4) < cycle_duration / 8) {
+                new_led_value = 255;
+            } else {
+                new_led_value = 0;
+            }
+            break;
+    }
+
+    if (when == INITIAL || new_led_value != led_value) {
+        led_value = new_led_value;
+        analogWrite(charge_state_led_pwm_pin, led_value);
+    }
+}
+
 void setup()
 {
 #if DEBUG
@@ -412,6 +476,9 @@ void setup()
     for (int i = 0; i < array_len(st4_inputs); i++) {
         pinMode(st4_inputs[i].pin, INPUT_PULLUP);
     }
+
+    pinMode(charge_state_led_pwm_pin, OUTPUT);
+    update_charge_led(INITIAL);
 }
 
 void loop()
@@ -427,4 +494,6 @@ void loop()
     for (int i = 0; i < NUM_AXES; i++) {
         do_step(i, NORMAL);
     }
+
+    update_charge_led(NORMAL);
 }
