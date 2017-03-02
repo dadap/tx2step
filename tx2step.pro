@@ -1,4 +1,4 @@
-update=Wednesday, March 01, 2017 'PMt' 10:01:37 PM
+update=Thursday, March 02, 2017 'AMt' 03:18:46 AM
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,3 +60,13 @@ LibName28=contrib
 LibName29=valves
 LibName30=kicad-library/library/switches
 LibName31=tx2step
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
