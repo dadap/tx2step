@@ -1,4 +1,4 @@
-update=Monday, February 27, 2017 'PMt' 10:24:33 PM
+update=Wednesday, March 01, 2017 'PMt' 10:01:37 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -58,5 +58,5 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-LibName30=drv8834
-LibName31=kicad-library/library/switches
+LibName30=kicad-library/library/switches
+LibName31=tx2step

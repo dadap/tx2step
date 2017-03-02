@@ -28,8 +28,8 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:drv8834
 LIBS:switches
+LIBS:tx2step
 LIBS:tx2step-cache
 EELAYER 25 0
 EELAYER END
