@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name tx2step-rescue)(type Legacy)(uri ${KIPRJMOD}/tx2step-rescue.lib)(options "")(descr ""))
+  (lib (name tx2step)(type Legacy)(uri ${KIPRJMOD}/tx2step.lib)(options "")(descr ""))
+)

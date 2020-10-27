@@ -1,37 +1,5 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:switches
-LIBS:tx2step
-LIBS:tx2step-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
@@ -46,7 +14,7 @@ Comment3 "A dual-axis motor controller for equatorial telescope mounts"
 Comment4 "Texas Two Step:"
 $EndDescr
 $Comp
-L ATMEGA328P-MM IC1
+L tx2step-rescue:ATMEGA328P-MM IC1
 U 1 1 58B4E37B
 P 2400 4000
 F 0 "IC1" H 1650 5250 50  0000 L BNN
@@ -57,7 +25,7 @@ F 3 "" H 2400 4000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L tx2step-rescue:GND #PWR01
 U 1 1 58B4E566
 P 1000 3400
 F 0 "#PWR01" H 1000 3150 50  0001 C CNN
@@ -68,7 +36,7 @@ F 3 "" H 1000 3400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C12
+L tx2step-rescue:C_Small C12
 U 1 1 58B4E57D
 P 1000 3300
 F 0 "C12" H 1010 3370 50  0000 L CNN
@@ -79,7 +47,7 @@ F 3 "" H 1000 3300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR02
+L tx2step-rescue:GND #PWR02
 U 1 1 58B4E779
 P 1350 5200
 F 0 "#PWR02" H 1350 4950 50  0001 C CNN
@@ -90,7 +58,7 @@ F 3 "" H 1350 5200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RJ45 J1
+L tx2step-rescue:RJ45 J1
 U 1 1 58B4F4CD
 P 5850 3500
 F 0 "J1" H 6050 4000 50  0000 C CNN
@@ -101,7 +69,7 @@ F 3 "" H 5850 3500 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR03
+L tx2step-rescue:GND #PWR03
 U 1 1 58B4FFB2
 P 5150 3350
 F 0 "#PWR03" H 5150 3100 50  0001 C CNN
@@ -112,7 +80,7 @@ F 3 "" H 5150 3350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_DPDT_x2 SW1
+L tx2step-rescue:SW_DPDT_x2 SW1
 U 2 1 58B50C38
 P 5100 4250
 F 0 "SW1" H 5100 4420 50  0000 C CNN
@@ -123,7 +91,7 @@ F 3 "" H 5100 4250 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L RJ12 J2
+L tx2step-rescue:RJ12 J2
 U 1 1 58B5172F
 P 9850 1750
 F 0 "J2" H 10050 2250 50  0000 C CNN
@@ -134,7 +102,7 @@ F 3 "" H 9850 1750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L D_TVS D7
+L tx2step-rescue:D_TVS D7
 U 1 1 58B52001
 P 8750 1700
 F 0 "D7" H 8750 1800 50  0000 C CNN
@@ -145,7 +113,7 @@ F 3 "" H 8750 1700 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L D_TVS D9
+L tx2step-rescue:D_TVS D9
 U 1 1 58B52074
 P 9050 2200
 F 0 "D9" H 9050 2300 50  0000 C CNN
@@ -156,7 +124,7 @@ F 3 "" H 9050 2200 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L RJ12 J3
+L tx2step-rescue:RJ12 J3
 U 1 1 58B53180
 P 9850 4800
 F 0 "J3" H 10050 5300 50  0000 C CNN
@@ -167,7 +135,7 @@ F 3 "" H 9850 4800 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L D_TVS D8
+L tx2step-rescue:D_TVS D8
 U 1 1 58B53591
 P 8750 4750
 F 0 "D8" H 8750 4850 50  0000 C CNN
@@ -178,7 +146,7 @@ F 3 "" H 8750 4750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L D_TVS D10
+L tx2step-rescue:D_TVS D10
 U 1 1 58B539C6
 P 9050 5250
 F 0 "D10" H 9050 5350 50  0000 C CNN
@@ -189,7 +157,7 @@ F 3 "" H 9050 5250 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +5VL #PWR04
+L tx2step-rescue:+5VL #PWR04
 U 1 1 58B63E6D
 P 1300 2900
 F 0 "#PWR04" H 1300 2750 50  0001 C CNN
@@ -200,7 +168,7 @@ F 3 "" H 1300 2900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VL #PWR05
+L tx2step-rescue:+5VL #PWR05
 U 1 1 58B7953F
 P 5150 3250
 F 0 "#PWR05" H 5150 3100 50  0001 C CNN
@@ -211,7 +179,7 @@ F 3 "" H 5150 3250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR06
+L tx2step-rescue:VCC #PWR06
 U 1 1 58B7B1BA
 P 7500 900
 F 0 "#PWR06" H 7500 750 50  0001 C CNN
@@ -222,7 +190,7 @@ F 3 "" H 7500 900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR07
+L tx2step-rescue:VCC #PWR07
 U 1 1 58B7B246
 P 7500 3950
 F 0 "#PWR07" H 7500 3800 50  0001 C CNN
@@ -233,7 +201,7 @@ F 3 "" H 7500 3950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C15
+L tx2step-rescue:C_Small C15
 U 1 1 58B7B49A
 P 7700 1100
 F 0 "C15" H 7710 1170 50  0000 L CNN
@@ -244,7 +212,7 @@ F 3 "" H 7700 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C17
+L tx2step-rescue:CP_Small C17
 U 1 1 58B7B4F6
 P 8000 1100
 F 0 "C17" H 8010 1170 50  0000 L CNN
@@ -255,7 +223,7 @@ F 3 "" H 8000 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C16
+L tx2step-rescue:C_Small C16
 U 1 1 58B7BBFB
 P 7700 4150
 F 0 "C16" H 7710 4220 50  0000 L CNN
@@ -266,7 +234,7 @@ F 3 "" H 7700 4150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C18
+L tx2step-rescue:CP_Small C18
 U 1 1 58B7BF61
 P 8000 4150
 F 0 "C18" H 8010 4220 50  0000 L CNN
@@ -277,7 +245,7 @@ F 3 "" H 8000 4150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR08
+L tx2step-rescue:GND #PWR08
 U 1 1 58B7CB33
 P 8000 4250
 F 0 "#PWR08" H 8000 4000 50  0001 C CNN
@@ -288,7 +256,7 @@ F 3 "" H 8000 4250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L tx2step-rescue:GND #PWR09
 U 1 1 58B7CE27
 P 8000 1200
 F 0 "#PWR09" H 8000 950 50  0001 C CNN
@@ -299,7 +267,7 @@ F 3 "" H 8000 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L tx2step-rescue:GND #PWR010
 U 1 1 58B7D2BB
 P 7500 3300
 F 0 "#PWR010" H 7500 3050 50  0001 C CNN
@@ -310,7 +278,7 @@ F 3 "" H 7500 3300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR011
+L tx2step-rescue:GND #PWR011
 U 1 1 58B7D41F
 P 7500 6350
 F 0 "#PWR011" H 7500 6100 50  0001 C CNN
@@ -321,7 +289,7 @@ F 3 "" H 7500 6350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DRV8834 IC2
+L tx2step-rescue:DRV8834 IC2
 U 1 1 58B80041
 P 7500 2300
 F 0 "IC2" H 6950 3250 60  0000 C CNN
@@ -332,7 +300,7 @@ F 3 "" H 6950 3250 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DRV8834 IC3
+L tx2step-rescue:DRV8834 IC3
 U 1 1 58B8147E
 P 7500 5350
 F 0 "IC3" H 6950 6300 60  0000 C CNN
@@ -343,7 +311,7 @@ F 3 "" H 6950 6300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCP73831 IC5
+L tx2step-rescue:MCP73831 IC5
 U 1 1 58B862EA
 P 2900 7300
 F 0 "IC5" H 2650 7600 60  0000 C CNN
@@ -354,7 +322,7 @@ F 3 "" H 2650 7600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_SPDT_MSM SW2
+L tx2step-rescue:SW_SPDT_MSM SW2
 U 1 1 58B86814
 P 5100 1000
 F 0 "SW2" H 5100 1200 50  0000 C CNN
@@ -365,7 +333,7 @@ F 3 "" H 5100 1000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L POT RV1
+L tx2step-rescue:POT RV1
 U 1 1 58B868AD
 P 5700 1050
 F 0 "RV1" V 5525 1050 50  0000 C CNN
@@ -376,7 +344,7 @@ F 3 "" H 5700 1050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VL #PWR012
+L tx2step-rescue:+5VL #PWR012
 U 1 1 58B874D3
 P 5700 900
 F 0 "#PWR012" H 5700 750 50  0001 C CNN
@@ -387,7 +355,7 @@ F 3 "" H 5700 900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR013
+L tx2step-rescue:GND #PWR013
 U 1 1 58B87520
 P 5700 1200
 F 0 "#PWR013" H 5700 950 50  0001 C CNN
@@ -398,7 +366,7 @@ F 3 "" H 5700 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R7
+L tx2step-rescue:R_Small R7
 U 1 1 58B876D6
 P 4700 900
 F 0 "R7" H 4730 920 50  0000 L CNN
@@ -409,7 +377,7 @@ F 3 "" H 4700 900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R8
+L tx2step-rescue:R_Small R8
 U 1 1 58B87737
 P 4700 1100
 F 0 "R8" H 4730 1120 50  0000 L CNN
@@ -420,7 +388,7 @@ F 3 "" H 4700 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR014
+L tx2step-rescue:GND #PWR014
 U 1 1 58B895AD
 P 4700 1200
 F 0 "#PWR014" H 4700 950 50  0001 C CNN
@@ -431,7 +399,7 @@ F 3 "" H 4700 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VL #PWR015
+L tx2step-rescue:+5VL #PWR015
 U 1 1 58B89600
 P 4700 800
 F 0 "#PWR015" H 4700 650 50  0001 C CNN
@@ -442,7 +410,7 @@ F 3 "" H 4700 800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Crystal Y1
+L tx2step-rescue:Crystal Y1
 U 1 1 58B8A677
 P 5050 2500
 F 0 "Y1" H 5050 2650 50  0000 C CNN
@@ -453,7 +421,7 @@ F 3 "" H 5050 2500 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C_Small C13
+L tx2step-rescue:C_Small C13
 U 1 1 58B8A7FC
 P 5400 2350
 F 0 "C13" H 5410 2420 50  0000 L CNN
@@ -464,7 +432,7 @@ F 3 "" H 5400 2350 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C_Small C14
+L tx2step-rescue:C_Small C14
 U 1 1 58B8A9A7
 P 5400 2650
 F 0 "C14" H 5410 2720 50  0000 L CNN
@@ -475,7 +443,7 @@ F 3 "" H 5400 2650 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR016
+L tx2step-rescue:GND #PWR016
 U 1 1 58B8AC8A
 P 5650 2500
 F 0 "#PWR016" H 5650 2250 50  0001 C CNN
@@ -486,7 +454,7 @@ F 3 "" H 5650 2500 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR017
+L tx2step-rescue:GND #PWR017
 U 1 1 58B92C90
 P 6450 1850
 F 0 "#PWR017" H 6450 1600 50  0001 C CNN
@@ -497,7 +465,7 @@ F 3 "" H 6450 1850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR018
+L tx2step-rescue:GND #PWR018
 U 1 1 58B95301
 P 6450 4900
 F 0 "#PWR018" H 6450 4650 50  0001 C CNN
@@ -508,7 +476,7 @@ F 3 "" H 6450 4900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C20
+L tx2step-rescue:C_Small C20
 U 1 1 58B95FE4
 P 8300 4150
 F 0 "C20" H 8310 4220 50  0000 L CNN
@@ -519,7 +487,7 @@ F 3 "" H 8300 4150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C19
+L tx2step-rescue:C_Small C19
 U 1 1 58B96443
 P 8300 1100
 F 0 "C19" H 8310 1170 50  0000 L CNN
@@ -530,7 +498,7 @@ F 3 "" H 8300 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R13
+L tx2step-rescue:R_Small R13
 U 1 1 58B971C6
 P 6450 2850
 F 0 "R13" H 6480 2870 50  0000 L CNN
@@ -541,7 +509,7 @@ F 3 "" H 6450 2850 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R_Small R14
+L tx2step-rescue:R_Small R14
 U 1 1 58B97329
 P 6450 5900
 F 0 "R14" H 6480 5920 50  0000 L CNN
@@ -552,7 +520,7 @@ F 3 "" H 6450 5900 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR019
+L tx2step-rescue:GND #PWR019
 U 1 1 58B97615
 P 6200 2850
 F 0 "#PWR019" H 6200 2600 50  0001 C CNN
@@ -563,7 +531,7 @@ F 3 "" H 6200 2850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR020
+L tx2step-rescue:GND #PWR020
 U 1 1 58B980BD
 P 6200 5900
 F 0 "#PWR020" H 6200 5650 50  0001 C CNN
@@ -574,7 +542,7 @@ F 3 "" H 6200 5900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R15
+L tx2step-rescue:R_Small R15
 U 1 1 58B98502
 P 8550 2950
 F 0 "R15" H 8580 2970 50  0000 L CNN
@@ -585,7 +553,7 @@ F 3 "" H 8550 2950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R17
+L tx2step-rescue:R_Small R17
 U 1 1 58B98573
 P 8850 2950
 F 0 "R17" H 8880 2970 50  0000 L CNN
@@ -596,7 +564,7 @@ F 3 "" H 8850 2950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR021
+L tx2step-rescue:GND #PWR021
 U 1 1 58B9897E
 P 8850 3100
 F 0 "#PWR021" H 8850 2850 50  0001 C CNN
@@ -607,7 +575,7 @@ F 3 "" H 8850 3100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R16
+L tx2step-rescue:R_Small R16
 U 1 1 58B98E8F
 P 8550 6000
 F 0 "R16" H 8580 6020 50  0000 L CNN
@@ -618,7 +586,7 @@ F 3 "" H 8550 6000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R18
+L tx2step-rescue:R_Small R18
 U 1 1 58B98F26
 P 8850 6000
 F 0 "R18" H 8880 6020 50  0000 L CNN
@@ -629,7 +597,7 @@ F 3 "" H 8850 6000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR022
+L tx2step-rescue:GND #PWR022
 U 1 1 58B993B1
 P 8850 6200
 F 0 "#PWR022" H 8850 5950 50  0001 C CNN
@@ -640,7 +608,7 @@ F 3 "" H 8850 6200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C22
+L tx2step-rescue:C_Small C22
 U 1 1 58B996D7
 P 9100 5700
 F 0 "C22" H 9110 5770 50  0000 L CNN
@@ -651,7 +619,7 @@ F 3 "" H 9100 5700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C21
+L tx2step-rescue:C_Small C21
 U 1 1 58B99B41
 P 9100 2650
 F 0 "C21" H 9110 2720 50  0000 L CNN
@@ -662,7 +630,7 @@ F 3 "" H 9100 2650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R9
+L tx2step-rescue:R_Small R9
 U 1 1 58B9B75C
 P 6200 2450
 F 0 "R9" H 6230 2470 50  0000 L CNN
@@ -673,7 +641,7 @@ F 3 "" H 6200 2450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R10
+L tx2step-rescue:R_Small R10
 U 1 1 58B9B7E8
 P 6200 2650
 F 0 "R10" H 6230 2670 50  0000 L CNN
@@ -684,7 +652,7 @@ F 3 "" H 6200 2650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R12
+L tx2step-rescue:R_Small R12
 U 1 1 58B9BECE
 P 6200 5700
 F 0 "R12" H 6230 5720 50  0000 L CNN
@@ -695,7 +663,7 @@ F 3 "" H 6200 5700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R11
+L tx2step-rescue:R_Small R11
 U 1 1 58B9C30F
 P 6200 5500
 F 0 "R11" H 6230 5520 50  0000 L CNN
@@ -706,7 +674,7 @@ F 3 "" H 6200 5500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L TPS61202 IC6
+L tx2step-rescue:TPS61202 IC6
 U 1 1 58BACDA2
 P 4850 6500
 F 0 "IC6" H 4550 6950 60  0000 C CNN
@@ -717,7 +685,7 @@ F 3 "" H 4600 7000 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L TPS2113A IC4
+L tx2step-rescue:TPS2113A IC4
 U 1 1 58BAD11D
 P 1350 6250
 F 0 "IC4" H 1150 6550 60  0000 C CNN
@@ -728,7 +696,7 @@ F 3 "" H 1000 6700 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L BARREL_JACK CON1
+L tx2step-rescue:BARREL_JACK CON1
 U 1 1 58BAF2CD
 P 1100 1150
 F 0 "CON1" H 1100 1400 50  0000 C CNN
@@ -739,7 +707,7 @@ F 3 "" H 1100 1150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C1
+L tx2step-rescue:CP_Small C1
 U 1 1 58BB0FC8
 P 1600 1100
 F 0 "C1" H 1610 1170 50  0000 L CNN
@@ -750,7 +718,7 @@ F 3 "" H 1600 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R2
+L tx2step-rescue:R_Small R2
 U 1 1 58BB1C0D
 P 1100 5450
 F 0 "R2" H 1130 5470 50  0000 L CNN
@@ -761,7 +729,7 @@ F 3 "" H 1100 5450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R3
+L tx2step-rescue:R_Small R3
 U 1 1 58BB1CDF
 P 1100 5650
 F 0 "R3" H 1130 5670 50  0000 L CNN
@@ -772,7 +740,7 @@ F 3 "" H 1100 5650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VL #PWR023
+L tx2step-rescue:+5VL #PWR023
 U 1 1 58BB2537
 P 900 5750
 F 0 "#PWR023" H 900 5600 50  0001 C CNN
@@ -783,7 +751,7 @@ F 3 "" H 900 5750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Battery_Cell BT1
+L tx2step-rescue:Battery_Cell BT1
 U 1 1 58BB419A
 P 3950 7400
 F 0 "BT1" H 4050 7500 50  0000 L CNN
@@ -794,7 +762,7 @@ F 3 "" V 3950 7460 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR024
+L tx2step-rescue:GND #PWR024
 U 1 1 58BB4BC9
 P 3950 7650
 F 0 "#PWR024" H 3950 7400 50  0001 C CNN
@@ -805,7 +773,7 @@ F 3 "" H 3950 7650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R6
+L tx2step-rescue:R_Small R6
 U 1 1 58BB4E52
 P 3500 7400
 F 0 "R6" H 3530 7420 50  0000 L CNN
@@ -816,7 +784,7 @@ F 3 "" H 3500 7400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C3
+L tx2step-rescue:C_Small C3
 U 1 1 58BB5CEC
 P 3700 7350
 F 0 "C3" H 3710 7420 50  0000 L CNN
@@ -827,7 +795,7 @@ F 3 "" H 3700 7350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C2
+L tx2step-rescue:C_Small C2
 U 1 1 58BB7ED6
 P 1950 7300
 F 0 "C2" H 1960 7370 50  0000 L CNN
@@ -838,7 +806,7 @@ F 3 "" H 1950 7300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR025
+L tx2step-rescue:GND #PWR025
 U 1 1 58BC2867
 P 750 6650
 F 0 "#PWR025" H 750 6400 50  0001 C CNN
@@ -849,7 +817,7 @@ F 3 "" H 750 6650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R1
+L tx2step-rescue:R_Small R1
 U 1 1 58BC2C2C
 P 900 6500
 F 0 "R1" H 930 6520 50  0000 L CNN
@@ -860,7 +828,7 @@ F 3 "" H 900 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C4
+L tx2step-rescue:C_Small C4
 U 1 1 58BC8C73
 P 2000 6500
 F 0 "C4" H 2010 6570 50  0000 L CNN
@@ -871,7 +839,7 @@ F 3 "" H 2000 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR026
+L tx2step-rescue:GND #PWR026
 U 1 1 58BC8F6B
 P 1950 7500
 F 0 "#PWR026" H 1950 7250 50  0001 C CNN
@@ -882,7 +850,7 @@ F 3 "" H 1950 7500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C5
+L tx2step-rescue:C_Small C5
 U 1 1 58BC9867
 P 2450 6500
 F 0 "C5" H 2460 6570 50  0000 L CNN
@@ -893,7 +861,7 @@ F 3 "" H 2450 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D4
+L tx2step-rescue:LED D4
 U 1 1 58BD09A8
 P 3300 2550
 F 0 "D4" H 3300 2650 50  0000 C CNN
@@ -904,7 +872,7 @@ F 3 "" H 3300 2550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R5
+L tx2step-rescue:R_Small R5
 U 1 1 58BD0C23
 P 2950 2550
 F 0 "R5" H 2980 2570 50  0000 L CNN
@@ -915,7 +883,7 @@ F 3 "" H 2950 2550 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR027
+L tx2step-rescue:GND #PWR027
 U 1 1 58BD148B
 P 2700 2550
 F 0 "#PWR027" H 2700 2300 50  0001 C CNN
@@ -926,7 +894,7 @@ F 3 "" H 2700 2550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR028
+L tx2step-rescue:+5V #PWR028
 U 1 1 58BD7FF7
 P 1600 900
 F 0 "#PWR028" H 1600 750 50  0001 C CNN
@@ -937,7 +905,7 @@ F 3 "" H 1600 900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR029
+L tx2step-rescue:GND #PWR029
 U 1 1 58BD80AA
 P 1600 1300
 F 0 "#PWR029" H 1600 1050 50  0001 C CNN
@@ -948,7 +916,7 @@ F 3 "" H 1600 1300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L D D2
+L tx2step-rescue:D D2
 U 1 1 58BD97FA
 P 2250 900
 F 0 "D2" H 2250 1000 50  0000 C CNN
@@ -959,7 +927,7 @@ F 3 "" H 2250 900 50  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L D D3
+L tx2step-rescue:D D3
 U 1 1 58BD98BA
 P 2250 1300
 F 0 "D3" H 2250 1400 50  0000 C CNN
@@ -970,7 +938,7 @@ F 3 "" H 2250 1300 50  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR030
+L tx2step-rescue:VCC #PWR030
 U 1 1 58BD9CEA
 P 1950 1300
 F 0 "#PWR030" H 1950 1150 50  0001 C CNN
@@ -981,7 +949,7 @@ F 3 "" H 1950 1300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VL #PWR031
+L tx2step-rescue:+5VL #PWR031
 U 1 1 58BD9FE6
 P 2650 1100
 F 0 "#PWR031" H 2650 950 50  0001 C CNN
@@ -992,7 +960,7 @@ F 3 "" H 2650 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR032
+L tx2step-rescue:+5V #PWR032
 U 1 1 58BDC748
 P 1950 7050
 F 0 "#PWR032" H 1950 6900 50  0001 C CNN
@@ -1003,7 +971,7 @@ F 3 "" H 1950 7050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR033
+L tx2step-rescue:+5V #PWR033
 U 1 1 58BDD3EF
 P 2000 6100
 F 0 "#PWR033" H 2000 5950 50  0001 C CNN
@@ -1014,7 +982,7 @@ F 3 "" H 2000 6100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR034
+L tx2step-rescue:GND #PWR034
 U 1 1 58BDD6F5
 P 2000 6600
 F 0 "#PWR034" H 2000 6350 50  0001 C CNN
@@ -1025,7 +993,7 @@ F 3 "" H 2000 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR035
+L tx2step-rescue:GND #PWR035
 U 1 1 58BDD81C
 P 2450 6600
 F 0 "#PWR035" H 2450 6350 50  0001 C CNN
@@ -1036,7 +1004,7 @@ F 3 "" H 2450 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C6
+L tx2step-rescue:C_Small C6
 U 1 1 58BE349E
 P 2950 6400
 F 0 "C6" H 2960 6470 50  0000 L CNN
@@ -1047,7 +1015,7 @@ F 3 "" H 2950 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C7
+L tx2step-rescue:C_Small C7
 U 1 1 58BE357B
 P 3250 6400
 F 0 "C7" H 3260 6470 50  0000 L CNN
@@ -1058,7 +1026,7 @@ F 3 "" H 3250 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR036
+L tx2step-rescue:GND #PWR036
 U 1 1 58BE3BEA
 P 4100 6800
 F 0 "#PWR036" H 4100 6550 50  0001 C CNN
@@ -1069,7 +1037,7 @@ F 3 "" H 4100 6800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_DPDT_x2 SW1
+L tx2step-rescue:SW_DPDT_x2 SW1
 U 1 1 58BE4643
 P 3700 6400
 F 0 "SW1" H 3700 6570 50  0000 C CNN
@@ -1080,7 +1048,7 @@ F 3 "" H 3700 6400 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L L L1
+L tx2step-rescue:L L1
 U 1 1 58BE5332
 P 4850 5750
 F 0 "L1" V 4800 5750 50  0000 C CNN
@@ -1091,7 +1059,7 @@ F 3 "" H 4850 5750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR037
+L tx2step-rescue:GND #PWR037
 U 1 1 58BE62BC
 P 5700 6900
 F 0 "#PWR037" H 5700 6650 50  0001 C CNN
@@ -1102,7 +1070,7 @@ F 3 "" H 5700 6900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C8
+L tx2step-rescue:C_Small C8
 U 1 1 58BE686E
 P 5600 6600
 F 0 "C8" H 5610 6670 50  0000 L CNN
@@ -1113,7 +1081,7 @@ F 3 "" H 5600 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C9
+L tx2step-rescue:C_Small C9
 U 1 1 58BE7064
 P 5750 6400
 F 0 "C9" H 5760 6470 50  0000 L CNN
@@ -1124,7 +1092,7 @@ F 3 "" H 5750 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C10
+L tx2step-rescue:C_Small C10
 U 1 1 58BE713C
 P 6000 6400
 F 0 "C10" H 6010 6470 50  0000 L CNN
@@ -1135,7 +1103,7 @@ F 3 "" H 6000 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C11
+L tx2step-rescue:C_Small C11
 U 1 1 58BE720B
 P 6200 6400
 F 0 "C11" H 6210 6470 50  0000 L CNN
@@ -1146,7 +1114,7 @@ F 3 "" H 6200 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR038
+L tx2step-rescue:VCC #PWR038
 U 1 1 58BE7F91
 P 6400 6200
 F 0 "#PWR038" H 6400 6050 50  0001 C CNN
@@ -1157,7 +1125,7 @@ F 3 "" H 6400 6200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_DIP_x02 SW3
+L tx2step-rescue:SW_DIP_x02 SW3
 U 1 1 58BF3D9B
 P 3200 2100
 F 0 "SW3" H 3200 2350 50  0000 C CNN
@@ -1168,7 +1136,7 @@ F 3 "" H 3200 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR039
+L tx2step-rescue:GND #PWR039
 U 1 1 58BF3ECD
 P 2650 2100
 F 0 "#PWR039" H 2650 1850 50  0001 C CNN
@@ -1183,7 +1151,7 @@ NoConn ~ 6700 1550
 NoConn ~ 6700 4600
 NoConn ~ 6700 6000
 $Comp
-L LED D1
+L tx2step-rescue:LED D1
 U 1 1 58B81282
 P 1150 1800
 F 0 "D1" H 1150 1900 50  0000 C CNN
@@ -1194,7 +1162,7 @@ F 3 "" H 1150 1800 50  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L R_Small R4
+L tx2step-rescue:R_Small R4
 U 1 1 58B813E3
 P 1550 1800
 F 0 "R4" H 1580 1820 50  0000 L CNN
@@ -1205,7 +1173,7 @@ F 3 "" H 1550 1800 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L VCC #PWR040
+L tx2step-rescue:VCC #PWR040
 U 1 1 58B81805
 P 850 1800
 F 0 "#PWR040" H 850 1650 50  0001 C CNN
@@ -1216,7 +1184,7 @@ F 3 "" H 850 1800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR041
+L tx2step-rescue:GND #PWR041
 U 1 1 58B818DF
 P 1800 1800
 F 0 "#PWR041" H 1800 1550 50  0001 C CNN
@@ -1227,7 +1195,7 @@ F 3 "" H 1800 1800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED_Small D5
+L tx2step-rescue:LED_Small D5
 U 1 1 58B8427E
 P 8550 2350
 F 0 "D5" H 8500 2475 50  0000 L CNN
@@ -1238,7 +1206,7 @@ F 3 "" V 8550 2350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED_Small D6
+L tx2step-rescue:LED_Small D6
 U 1 1 58B847EB
 P 8550 5400
 F 0 "D6" H 8500 5525 50  0000 L CNN
@@ -1249,7 +1217,7 @@ F 3 "" V 8550 5400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR042
+L tx2step-rescue:VCC #PWR042
 U 1 1 58B85026
 P 9600 2450
 F 0 "#PWR042" H 9600 2300 50  0001 C CNN
@@ -1260,7 +1228,7 @@ F 3 "" H 9600 2450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R19
+L tx2step-rescue:R_Small R19
 U 1 1 58B85106
 P 9350 2450
 F 0 "R19" H 9380 2470 50  0000 L CNN
@@ -1271,7 +1239,7 @@ F 3 "" H 9350 2450 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R_Small R20
+L tx2step-rescue:R_Small R20
 U 1 1 58B85B75
 P 9400 5500
 F 0 "R20" H 9430 5520 50  0000 L CNN
@@ -1282,7 +1250,7 @@ F 3 "" H 9400 5500 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L VCC #PWR043
+L tx2step-rescue:VCC #PWR043
 U 1 1 58B88C4F
 P 9650 5500
 F 0 "#PWR043" H 9650 5350 50  0001 C CNN
@@ -1297,7 +1265,7 @@ Wire Wire Line
 Wire Wire Line
 	1300 3500 1500 3500
 Wire Wire Line
-	1100 5200 1500 5200
+	1100 5200 1350 5200
 Wire Wire Line
 	3400 4700 4300 4700
 Wire Wire Line
@@ -1369,7 +1337,7 @@ Wire Wire Line
 Wire Wire Line
 	8500 1550 8500 1750
 Wire Wire Line
-	8300 1850 9400 1850
+	8300 1850 8750 1850
 Wire Wire Line
 	9150 1550 9150 1750
 Wire Wire Line
@@ -1386,7 +1354,7 @@ Wire Wire Line
 Wire Wire Line
 	9250 1950 9250 2350
 Wire Wire Line
-	9250 2350 8850 2350
+	9250 2350 9050 2350
 Wire Wire Line
 	8850 2350 8850 2150
 Wire Wire Line
@@ -1397,9 +1365,9 @@ Wire Wire Line
 Wire Wire Line
 	8450 4800 8450 4600
 Wire Wire Line
-	8450 4600 9150 4600
+	8450 4600 8750 4600
 Wire Wire Line
-	8300 4900 9400 4900
+	8300 4900 8750 4900
 Wire Wire Line
 	9150 4600 9150 4800
 Wire Wire Line
@@ -1413,7 +1381,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 5200 8850 5400
 Wire Wire Line
-	8850 5400 9250 5400
+	8850 5400 9050 5400
 Wire Wire Line
 	9050 5100 9050 4700
 Wire Wire Line
@@ -1430,30 +1398,30 @@ Wire Wire Line
 Wire Wire Line
 	4800 4800 6700 4800
 Wire Wire Line
-	1300 2900 1300 3500
+	1300 2900 1300 3200
 Wire Wire Line
-	1000 3200 1500 3200
+	1000 3200 1300 3200
 Connection ~ 1300 3200
 Wire Wire Line
 	7500 1200 7600 1200
 Wire Wire Line
 	7500 4250 7600 4250
 Wire Wire Line
-	7500 1000 8000 1000
+	7500 1000 7700 1000
 Wire Wire Line
-	7500 900  7500 1200
+	7500 900  7500 1000
 Wire Wire Line
 	7700 1200 8000 1200
 Wire Wire Line
-	7500 4050 8000 4050
+	7500 4050 7700 4050
 Wire Wire Line
 	8000 4250 7700 4250
 Connection ~ 7700 1000
 Connection ~ 7700 4050
 Wire Wire Line
-	7500 3950 7500 4250
+	7500 3950 7500 4050
 Wire Wire Line
-	8500 1550 9150 1550
+	8500 1550 8750 1550
 Connection ~ 8750 1550
 Wire Wire Line
 	5300 900  5700 900 
@@ -1464,7 +1432,7 @@ Wire Wire Line
 Wire Wire Line
 	5450 1200 5700 1200
 Wire Wire Line
-	4600 1000 4900 1000
+	4600 1000 4700 1000
 Wire Wire Line
 	4600 3950 3400 3950
 Connection ~ 4700 1000
@@ -1479,9 +1447,9 @@ Wire Wire Line
 Wire Wire Line
 	4600 1000 4600 3950
 Wire Wire Line
-	3900 2350 5300 2350
+	3900 2350 5050 2350
 Wire Wire Line
-	4000 2650 5300 2650
+	4000 2650 5050 2650
 Wire Wire Line
 	3900 2350 3900 3500
 Wire Wire Line
@@ -1495,7 +1463,7 @@ Connection ~ 5050 2650
 Wire Wire Line
 	5500 2350 5650 2350
 Wire Wire Line
-	5650 2350 5650 2650
+	5650 2350 5650 2500
 Wire Wire Line
 	5650 2650 5500 2650
 Connection ~ 5650 2500
@@ -1520,7 +1488,7 @@ Wire Wire Line
 Wire Wire Line
 	8450 3550 8450 2550
 Wire Wire Line
-	8300 2550 9100 2550
+	8300 2550 8450 2550
 Wire Wire Line
 	6700 5300 6600 5300
 Wire Wire Line
@@ -1530,16 +1498,16 @@ Wire Wire Line
 Wire Wire Line
 	8450 6600 8450 5600
 Wire Wire Line
-	8300 5600 9100 5600
+	8300 5600 8450 5600
 Wire Wire Line
-	6450 1850 6700 1850
+	6450 1850 6600 1850
 Wire Wire Line
 	6700 1950 6600 1950
 Wire Wire Line
 	6600 1950 6600 1850
 Connection ~ 6600 1850
 Wire Wire Line
-	6450 4900 6700 4900
+	6450 4900 6600 4900
 Wire Wire Line
 	6700 5000 6600 5000
 Wire Wire Line
@@ -1574,7 +1542,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 3050 8850 3100
 Wire Wire Line
-	8550 3100 9100 3100
+	8550 3100 8850 3100
 Wire Wire Line
 	8850 5900 8850 5800
 Wire Wire Line
@@ -1586,7 +1554,7 @@ Wire Wire Line
 Wire Wire Line
 	8550 6100 8550 6200
 Wire Wire Line
-	8550 6200 9100 6200
+	8550 6200 8850 6200
 Wire Wire Line
 	8850 6200 8850 6100
 Connection ~ 8450 5600
@@ -1624,7 +1592,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 2750 8850 2850
 Wire Wire Line
-	1100 5550 4100 5550
+	1100 5550 2250 5550
 Wire Wire Line
 	1100 5350 1100 5200
 Connection ~ 1350 5200
@@ -1635,11 +1603,11 @@ Wire Wire Line
 Wire Wire Line
 	900  5750 1100 5750
 Wire Wire Line
-	3950 7500 3950 7650
+	3950 7500 3950 7600
 Wire Wire Line
 	3400 7450 3400 7600
 Wire Wire Line
-	3400 7600 3950 7600
+	3400 7600 3500 7600
 Wire Wire Line
 	3500 7600 3500 7500
 Connection ~ 3500 7600
@@ -1647,9 +1615,9 @@ Wire Wire Line
 	3500 7300 3400 7300
 Connection ~ 3950 7600
 Wire Wire Line
-	3400 7150 3950 7150
+	3400 7150 3700 7150
 Wire Wire Line
-	3950 6850 3950 7200
+	3950 6850 3950 7150
 Wire Wire Line
 	3700 7250 3700 7150
 Connection ~ 3700 7150
@@ -1660,13 +1628,13 @@ Wire Wire Line
 	2250 7450 2250 5550
 Connection ~ 2250 5550
 Wire Wire Line
-	750  6650 1800 6650
+	750  6650 800  6650
 Wire Wire Line
 	1800 6650 1800 6400
 Wire Wire Line
 	900  6300 800  6300
 Wire Wire Line
-	800  6200 800  6650
+	800  6200 800  6300
 Connection ~ 800  6650
 Wire Wire Line
 	900  6200 800  6200
@@ -1685,7 +1653,7 @@ Wire Wire Line
 Wire Wire Line
 	2250 7450 2400 7450
 Wire Wire Line
-	1800 6300 2650 6300
+	1800 6300 2450 6300
 Wire Wire Line
 	2650 6300 2650 6850
 Wire Wire Line
@@ -1708,7 +1676,7 @@ Wire Wire Line
 Wire Wire Line
 	1600 1200 1600 1300
 Wire Wire Line
-	1600 1000 1600 900 
+	1600 1000 1600 950 
 Wire Wire Line
 	1600 950  1750 950 
 Wire Wire Line
@@ -1719,14 +1687,14 @@ Connection ~ 1600 950
 Wire Wire Line
 	1950 1300 2100 1300
 Wire Wire Line
-	2400 900  2400 1300
+	2400 900  2400 1100
 Wire Wire Line
 	2400 1100 2650 1100
 Connection ~ 2400 1100
 Wire Wire Line
 	2400 7150 1950 7150
 Wire Wire Line
-	1950 7050 1950 7200
+	1950 7050 1950 7150
 Wire Wire Line
 	1950 7400 1950 7500
 Connection ~ 1950 7150
@@ -1738,7 +1706,7 @@ Wire Wire Line
 	2450 6400 2450 6300
 Connection ~ 2450 6300
 Wire Wire Line
-	1800 6200 4300 6200
+	1800 6200 2950 6200
 Wire Wire Line
 	2950 6300 2950 6200
 Wire Wire Line
@@ -1746,11 +1714,11 @@ Wire Wire Line
 Wire Wire Line
 	2950 6500 2950 6550
 Wire Wire Line
-	2950 6550 3250 6550
+	2950 6550 3100 6550
 Wire Wire Line
 	3250 6550 3250 6500
 Wire Wire Line
-	3100 6800 4300 6800
+	3100 6800 3500 6800
 Wire Wire Line
 	3100 6550 3100 6800
 Connection ~ 4100 6800
@@ -1781,13 +1749,13 @@ Wire Wire Line
 Wire Wire Line
 	5400 5750 5400 6200
 Wire Wire Line
-	5400 6300 6400 6300
+	5400 6300 5500 6300
 Wire Wire Line
 	5500 6300 5500 6600
 Wire Wire Line
 	5500 6600 5400 6600
 Wire Wire Line
-	6000 6800 5400 6800
+	6000 6800 5700 6800
 Wire Wire Line
 	5700 6800 5700 6900
 Wire Wire Line
@@ -1803,11 +1771,11 @@ Connection ~ 6000 6300
 Wire Wire Line
 	5750 6500 5750 6550
 Wire Wire Line
-	5750 6550 6200 6550
+	5750 6550 6000 6550
 Wire Wire Line
 	6200 6550 6200 6500
 Wire Wire Line
-	6000 6500 6000 6800
+	6000 6500 6000 6550
 Connection ~ 6000 6550
 Connection ~ 5700 6800
 Wire Wire Line
@@ -1825,7 +1793,7 @@ Wire Wire Line
 	3500 6300 3500 6200
 Connection ~ 3500 6200
 Wire Wire Line
-	2650 2100 2900 2100
+	2650 2100 2800 2100
 Wire Wire Line
 	2900 2000 2800 2000
 Wire Wire Line
@@ -1883,4 +1851,110 @@ NoConn ~ 9400 5100
 NoConn ~ 9400 4600
 NoConn ~ 6200 4050
 NoConn ~ 1400 1250
+Wire Wire Line
+	8750 1850 9400 1850
+Wire Wire Line
+	9050 2350 8850 2350
+Wire Wire Line
+	8750 4600 9150 4600
+Wire Wire Line
+	8750 4900 9400 4900
+Wire Wire Line
+	9050 5400 9250 5400
+Wire Wire Line
+	1300 3200 1300 3500
+Wire Wire Line
+	1300 3200 1500 3200
+Wire Wire Line
+	7700 1000 8000 1000
+Wire Wire Line
+	7700 4050 8000 4050
+Wire Wire Line
+	8750 1550 9150 1550
+Wire Wire Line
+	4700 1000 4900 1000
+Wire Wire Line
+	5050 2350 5300 2350
+Wire Wire Line
+	5050 2650 5300 2650
+Wire Wire Line
+	5650 2500 5650 2650
+Wire Wire Line
+	6600 1850 6700 1850
+Wire Wire Line
+	6600 4900 6700 4900
+Wire Wire Line
+	7500 1000 7500 1200
+Wire Wire Line
+	7500 4050 7500 4250
+Wire Wire Line
+	8450 5600 9100 5600
+Wire Wire Line
+	8850 6200 9100 6200
+Wire Wire Line
+	8450 2550 9100 2550
+Wire Wire Line
+	8850 3100 9100 3100
+Wire Wire Line
+	1350 5200 1500 5200
+Wire Wire Line
+	3500 7600 3700 7600
+Wire Wire Line
+	3950 7600 3950 7650
+Wire Wire Line
+	3700 7150 3950 7150
+Wire Wire Line
+	3700 7600 3950 7600
+Wire Wire Line
+	2250 5550 4100 5550
+Wire Wire Line
+	800  6650 900  6650
+Wire Wire Line
+	800  6300 800  6650
+Wire Wire Line
+	900  6650 1800 6650
+Wire Wire Line
+	3950 7150 3950 7200
+Wire Wire Line
+	1600 950  1600 900 
+Wire Wire Line
+	2400 1100 2400 1300
+Wire Wire Line
+	1950 7150 1950 7200
+Wire Wire Line
+	2450 6300 2650 6300
+Wire Wire Line
+	4100 6800 4200 6800
+Wire Wire Line
+	3100 6550 3250 6550
+Wire Wire Line
+	4050 6200 4200 6200
+Wire Wire Line
+	4200 6800 4300 6800
+Wire Wire Line
+	3250 6200 3500 6200
+Wire Wire Line
+	2950 6200 3250 6200
+Wire Wire Line
+	4200 6200 4300 6200
+Wire Wire Line
+	5600 6800 5400 6800
+Wire Wire Line
+	5500 6300 5750 6300
+Wire Wire Line
+	5750 6300 6000 6300
+Wire Wire Line
+	6000 6300 6200 6300
+Wire Wire Line
+	6000 6550 6200 6550
+Wire Wire Line
+	6000 6550 6000 6800
+Wire Wire Line
+	5700 6800 5600 6800
+Wire Wire Line
+	6200 6300 6400 6300
+Wire Wire Line
+	3500 6200 4050 6200
+Wire Wire Line
+	2800 2100 2900 2100
 $EndSCHEMATC

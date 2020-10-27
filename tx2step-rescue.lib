@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# tx2step-rescue_+5V
+# +5V
 #
-DEF tx2step-rescue_+5V #PWR 0 0 Y Y 1 F P
+DEF +5V #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "tx2step-rescue_+5V" 0 140 50 H V C CNN
+F1 "+5V" 0 140 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -16,11 +16,11 @@ X +5V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_+5VL
+# +5VL
 #
-DEF tx2step-rescue_+5VL #PWR 0 0 Y Y 1 F P
+DEF +5VL #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "tx2step-rescue_+5VL" 0 140 50 H V C CNN
+F1 "+5VL" 0 140 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -31,11 +31,11 @@ X +5VL 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_ATMEGA328P-MM
+# ATMEGA328P-MM
 #
-DEF tx2step-rescue_ATMEGA328P-MM IC 0 40 Y Y 1 F N
+DEF ATMEGA328P-MM IC 0 40 Y Y 1 F N
 F0 "IC" -750 1250 50 H V L BNN
-F1 "tx2step-rescue_ATMEGA328P-MM" 350 -1400 50 H V L BNN
+F1 "ATMEGA328P-MM" 350 -1400 50 H V L BNN
 F2 "MLF/QFN28" 0 0 50 H V C CIN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -71,11 +71,11 @@ X (PCINT23/AIN1)PD7 9 1000 -1200 150 L 40 40 1 1 B
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_BARREL_JACK
+# BARREL_JACK
 #
-DEF tx2step-rescue_BARREL_JACK CON 0 40 Y Y 1 F N
+DEF BARREL_JACK CON 0 40 Y Y 1 F N
 F0 "CON" 0 250 50 H V C CNN
-F1 "tx2step-rescue_BARREL_JACK" 0 -200 50 H V C CNN
+F1 "BARREL_JACK" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -92,11 +92,11 @@ X ~ 3 300 0 200 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_Battery_Cell
+# Battery_Cell
 #
-DEF tx2step-rescue_Battery_Cell BT 0 0 N N 1 F N
+DEF Battery_Cell BT 0 0 N N 1 F N
 F0 "BT" 100 100 50 H V L CNN
-F1 "tx2step-rescue_Battery_Cell" 100 0 50 H V L CNN
+F1 "Battery_Cell" 100 0 50 H V L CNN
 F2 "" 0 60 50 V V C CNN
 F3 "" 0 60 50 V V C CNN
 DRAW
@@ -111,11 +111,11 @@ X - 2 0 -100 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_CP_Small
+# CP_Small
 #
-DEF tx2step-rescue_CP_Small C 0 10 N N 1 F N
+DEF CP_Small C 0 10 N N 1 F N
 F0 "C" 10 70 50 H V L CNN
-F1 "tx2step-rescue_CP_Small" 10 -80 50 H V L CNN
+F1 "CP_Small" 10 -80 50 H V L CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -137,11 +137,11 @@ X ~ 2 0 -100 73 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_C_Small
+# C_Small
 #
-DEF tx2step-rescue_C_Small C 0 10 N N 1 F N
+DEF C_Small C 0 10 N N 1 F N
 F0 "C" 10 70 50 H V L CNN
-F1 "tx2step-rescue_C_Small" 10 -80 50 H V L CNN
+F1 "C_Small" 10 -80 50 H V L CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -159,11 +159,11 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_Crystal
+# Crystal
 #
-DEF tx2step-rescue_Crystal Y 0 40 N N 1 F N
+DEF Crystal Y 0 40 N N 1 F N
 F0 "Y" 0 150 50 H V C CNN
-F1 "tx2step-rescue_Crystal" 0 -150 50 H V C CNN
+F1 "Crystal" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -180,11 +180,11 @@ X 2 2 150 0 50 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_D
+# D
 #
-DEF tx2step-rescue_D D 0 40 N N 1 F N
+DEF D D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "tx2step-rescue_D" 0 -100 50 H V C CNN
+F1 "D" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -204,11 +204,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_DRV8834
+# DRV8834
 #
-DEF tx2step-rescue_DRV8834 IC 0 40 Y Y 1 F N
+DEF DRV8834 IC 0 40 Y Y 1 F N
 F0 "IC" -550 950 60 H V C CNN
-F1 "tx2step-rescue_DRV8834" 400 -850 60 H V C CNN
+F1 "DRV8834" 400 -850 60 H V C CNN
 F2 "" -550 950 60 H I C CNN
 F3 "" -550 950 60 H I C CNN
 DRAW
@@ -240,11 +240,11 @@ X DIR/BPHASE 9 -800 550 200 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_D_TVS
+# D_TVS
 #
-DEF tx2step-rescue_D_TVS D 0 40 N N 1 F N
+DEF D_TVS D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "tx2step-rescue_D_TVS" 0 -100 50 H V C CNN
+F1 "D_TVS" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -265,11 +265,11 @@ X A2 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_GND
+# GND
 #
-DEF tx2step-rescue_GND #PWR 0 0 Y Y 1 F P
+DEF GND #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "tx2step-rescue_GND" 0 -150 50 H V C CNN
+F1 "GND" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -278,11 +278,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_L
+# L
 #
-DEF tx2step-rescue_L L 0 40 N N 1 F N
+DEF L L 0 40 N N 1 F N
 F0 "L" -50 0 50 V V C CNN
-F1 "tx2step-rescue_L" 75 0 50 V V C CNN
+F1 "L" 75 0 50 V V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -299,11 +299,11 @@ X 2 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_LED
+# LED
 #
-DEF tx2step-rescue_LED D 0 40 Y N 1 F N
+DEF LED D 0 40 Y N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "tx2step-rescue_LED" 0 -100 50 H V C CNN
+F1 "LED" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -320,11 +320,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_LED_Small
+# LED_Small
 #
-DEF tx2step-rescue_LED_Small D 0 10 N N 1 F N
+DEF LED_Small D 0 10 N N 1 F N
 F0 "D" -50 125 50 H V L CNN
-F1 "tx2step-rescue_LED_Small" -175 -100 50 H V L CNN
+F1 "LED_Small" -175 -100 50 H V L CNN
 F2 "" 0 0 50 V V C CNN
 F3 "" 0 0 50 V V C CNN
 $FPLIST
@@ -342,11 +342,11 @@ X A 2 100 0 70 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_MCP73831
+# MCP73831
 #
-DEF tx2step-rescue_MCP73831 IC 0 40 Y Y 1 F N
+DEF MCP73831 IC 0 40 Y Y 1 F N
 F0 "IC" -250 300 60 H V C CNN
-F1 "tx2step-rescue_MCP73831" 100 -300 60 H V C CNN
+F1 "MCP73831" 100 -300 60 H V C CNN
 F2 "" -250 300 60 H I C CNN
 F3 "" -250 300 60 H I C CNN
 DRAW
@@ -359,11 +359,11 @@ X PROG 5 500 0 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_POT
+# POT
 #
-DEF tx2step-rescue_POT RV 0 40 N N 1 F N
+DEF POT RV 0 40 N N 1 F N
 F0 "RV" -175 0 50 V V C CNN
-F1 "tx2step-rescue_POT" -100 0 50 V V C CNN
+F1 "POT" -100 0 50 V V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -376,11 +376,11 @@ X 3 3 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_RJ12
+# RJ12
 #
-DEF tx2step-rescue_RJ12 J 0 40 Y Y 1 F N
+DEF RJ12 J 0 40 Y Y 1 F N
 F0 "J" 200 500 50 H V C CNN
-F1 "tx2step-rescue_RJ12" -150 500 50 H V C CNN
+F1 "RJ12" -150 500 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -403,11 +403,11 @@ X SHIELD_2 8 500 300 150 L 50 30 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_RJ45
+# RJ45
 #
-DEF tx2step-rescue_RJ45 J 0 40 Y Y 1 F N
+DEF RJ45 J 0 40 Y Y 1 F N
 F0 "J" 200 500 50 H V C CNN
-F1 "tx2step-rescue_RJ45" -150 500 50 H V C CNN
+F1 "RJ45" -150 500 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
@@ -433,11 +433,11 @@ X SHIELD 9 550 350 150 L 50 30 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_R_Small
+# R_Small
 #
-DEF tx2step-rescue_R_Small R 0 10 N N 1 F N
+DEF R_Small R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "tx2step-rescue_R_Small" 30 -40 50 H V L CNN
+F1 "R_Small" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST
@@ -451,11 +451,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_SW_DIP_x02
+# SW_DIP_x02
 #
-DEF tx2step-rescue_SW_DIP_x02 SW 0 0 Y N 1 F N
+DEF SW_DIP_x02 SW 0 0 Y N 1 F N
 F0 "SW" 0 250 50 H V C CNN
-F1 "tx2step-rescue_SW_DIP_x02" 0 -150 50 H V C CNN
+F1 "SW_DIP_x02" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -476,11 +476,11 @@ X ~ 4 300 100 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_SW_DPDT_x2
+# SW_DPDT_x2
 #
-DEF tx2step-rescue_SW_DPDT_x2 SW 0 0 Y N 2 F N
+DEF SW_DPDT_x2 SW 0 0 Y N 2 F N
 F0 "SW" 0 170 50 H V C CNN
-F1 "tx2step-rescue_SW_DPDT_x2" 0 -200 50 H V C CNN
+F1 "SW_DPDT_x2" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -497,11 +497,11 @@ X C 5 200 -100 100 L 50 50 2 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_SW_SPDT_MSM
+# SW_SPDT_MSM
 #
-DEF tx2step-rescue_SW_SPDT_MSM SW 0 0 Y N 1 F N
+DEF SW_SPDT_MSM SW 0 0 Y N 1 F N
 F0 "SW" 0 200 50 H V C CNN
-F1 "tx2step-rescue_SW_SPDT_MSM" 0 -200 50 H V C CNN
+F1 "SW_SPDT_MSM" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -516,11 +516,11 @@ X 3 3 200 -100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_TPS2113A
+# TPS2113A
 #
-DEF tx2step-rescue_TPS2113A IC 0 40 Y Y 1 F N
+DEF TPS2113A IC 0 40 Y Y 1 F N
 F0 "IC" -200 300 60 H V C CNN
-F1 "tx2step-rescue_TPS2113A" 50 -300 60 H V C CNN
+F1 "TPS2113A" 50 -300 60 H V C CNN
 F2 "" -350 450 60 H I C CNN
 F3 "" -350 450 60 H I C CNN
 DRAW
@@ -536,11 +536,11 @@ X IN1 8 450 150 200 L 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_TPS61202
+# TPS61202
 #
-DEF tx2step-rescue_TPS61202 IC 0 40 Y Y 1 F N
+DEF TPS61202 IC 0 40 Y Y 1 F N
 F0 "IC" -300 450 60 H V C CNN
-F1 "tx2step-rescue_TPS61202" 150 -450 60 H V C CNN
+F1 "TPS61202" 150 -450 60 H V C CNN
 F2 "" -250 500 60 H I C CNN
 F3 "" -250 500 60 H I C CNN
 DRAW
@@ -558,11 +558,11 @@ X GND 9 -550 -300 200 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# tx2step-rescue_VCC
+# VCC
 #
-DEF tx2step-rescue_VCC #PWR 0 0 Y Y 1 F P
+DEF VCC #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "tx2step-rescue_VCC" 0 150 50 H V C CNN
+F1 "VCC" 0 150 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 DRAW
