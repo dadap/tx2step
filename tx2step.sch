@@ -289,39 +289,6 @@ F 3 "" H 5700 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R7
-U 1 1 58B876D6
-P 4700 900
-F 0 "R7" H 4730 920 50  0000 L CNN
-F 1 "4.7KΩ" H 4730 860 50  0000 L CNN
-F 2 "" H 4700 900 50  0000 C CNN
-F 3 "" H 4700 900 50  0000 C CNN
-	1    4700 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L tx2step-rescue:R_Small R8
-U 1 1 58B87737
-P 4700 1100
-F 0 "R8" H 4730 1120 50  0000 L CNN
-F 1 "4.7KΩ" H 4730 1060 50  0000 L CNN
-F 2 "" H 4700 1100 50  0000 C CNN
-F 3 "" H 4700 1100 50  0000 C CNN
-	1    4700 1100
-	1    0    0    -1  
-$EndComp
-$Comp
-L tx2step-rescue:GND #PWR020
-U 1 1 58B895AD
-P 4700 1200
-F 0 "#PWR020" H 4700 950 50  0001 C CNN
-F 1 "GND" H 4700 1050 50  0000 C CNN
-F 2 "" H 4700 1200 50  0000 C CNN
-F 3 "" H 4700 1200 50  0000 C CNN
-	1    4700 1200
-	1    0    0    -1  
-$EndComp
-$Comp
 L tx2step-rescue:Crystal Y1
 U 1 1 58B8A677
 P 5050 2500
@@ -913,7 +880,7 @@ L tx2step-rescue:LED D1
 U 1 1 58B81282
 P 1150 1800
 F 0 "D1" H 1150 1900 50  0000 C CNN
-F 1 "POWER" H 1150 1700 50  0000 C CNN
+F 1 "BATT" H 1150 1700 50  0000 C CNN
 F 2 "" H 1150 1800 50  0000 C CNN
 F 3 "" H 1150 1800 50  0000 C CNN
 	1    1150 1800
@@ -929,17 +896,6 @@ F 2 "" H 1550 1800 50  0000 C CNN
 F 3 "" H 1550 1800 50  0000 C CNN
 	1    1550 1800
 	0    -1   -1   0   
-$EndComp
-$Comp
-L tx2step-rescue:GND #PWR09
-U 1 1 58B818DF
-P 1800 1800
-F 0 "#PWR09" H 1800 1550 50  0001 C CNN
-F 1 "GND" H 1800 1650 50  0000 C CNN
-F 2 "" H 1800 1800 50  0000 C CNN
-F 3 "" H 1800 1800 50  0000 C CNN
-	1    1800 1800
-	1    0    0    -1  
 $EndComp
 $Comp
 L tx2step-rescue:LED_Small D3
@@ -1151,10 +1107,7 @@ Wire Wire Line
 Wire Wire Line
 	5450 1200 5700 1200
 Wire Wire Line
-	4600 1000 4700 1000
-Wire Wire Line
 	4600 3950 3400 3950
-Connection ~ 4700 1000
 Wire Wire Line
 	4100 4050 3400 4050
 Wire Wire Line
@@ -1473,8 +1426,6 @@ Wire Wire Line
 Wire Wire Line
 	1300 1800 1450 1800
 Wire Wire Line
-	1650 1800 1800 1800
-Wire Wire Line
 	8450 2350 8300 2350
 Wire Wire Line
 	8300 5400 8450 5400
@@ -1510,8 +1461,6 @@ Wire Wire Line
 	7700 4050 8000 4050
 Wire Wire Line
 	8750 1550 9150 1550
-Wire Wire Line
-	4700 1000 4900 1000
 Wire Wire Line
 	5050 2350 5300 2350
 Wire Wire Line
@@ -1590,17 +1539,6 @@ Wire Wire Line
 	2800 2100 2900 2100
 Wire Wire Line
 	1600 900  1600 1000
-$Comp
-L power:VCC #PWR019
-U 1 1 5FE31F55
-P 4700 800
-F 0 "#PWR019" H 4700 650 50  0001 C CNN
-F 1 "VCC" H 4715 973 50  0000 C CNN
-F 2 "" H 4700 800 50  0001 C CNN
-F 3 "" H 4700 800 50  0001 C CNN
-	1    4700 800 
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:VCC #PWR024
 U 1 1 5FE50164
@@ -1715,9 +1653,6 @@ F 3 "" H 6400 6200 50  0001 C CNN
 	1    6400 6200
 	1    0    0    -1  
 $EndComp
-Connection ~ 1400 1200
-Wire Wire Line
-	1400 1100 1400 1200
 $Comp
 L Connector:8P8C J1
 U 1 1 58B4F4CD
@@ -1913,4 +1848,63 @@ Wire Wire Line
 	8750 6250 8750 5900
 Wire Wire Line
 	8300 5900 8750 5900
+$Comp
+L tx2step-rescue:GND #PWR020
+U 1 1 58B895AD
+P 4700 1200
+F 0 "#PWR020" H 4700 950 50  0001 C CNN
+F 1 "GND" H 4700 1050 50  0000 C CNN
+F 2 "" H 4700 1200 50  0000 C CNN
+F 3 "" H 4700 1200 50  0000 C CNN
+	1    4700 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1000 4900 1000
+Wire Wire Line
+	4600 1000 4700 1000
+Connection ~ 4700 1000
+$Comp
+L tx2step-rescue:R_Small R8
+U 1 1 58B87737
+P 4700 1100
+F 0 "R8" H 4730 1120 50  0000 L CNN
+F 1 "4.7KΩ" H 4730 1060 50  0000 L CNN
+F 2 "" H 4700 1100 50  0000 C CNN
+F 3 "" H 4700 1100 50  0000 C CNN
+	1    4700 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR019
+U 1 1 5FE31F55
+P 4700 800
+F 0 "#PWR019" H 4700 650 50  0001 C CNN
+F 1 "VCC" H 4715 973 50  0000 C CNN
+F 2 "" H 4700 800 50  0001 C CNN
+F 3 "" H 4700 800 50  0001 C CNN
+	1    4700 800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2step-rescue:R_Small R7
+U 1 1 58B876D6
+P 4700 900
+F 0 "R7" H 4730 920 50  0000 L CNN
+F 1 "4.7KΩ" H 4730 860 50  0000 L CNN
+F 2 "" H 4700 900 50  0000 C CNN
+F 3 "" H 4700 900 50  0000 C CNN
+	1    4700 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 1100 1450 1100
+Wire Wire Line
+	1450 1100 1450 1600
+Wire Wire Line
+	1450 1600 1700 1600
+Wire Wire Line
+	1700 1600 1700 1800
+Wire Wire Line
+	1700 1800 1650 1800
 $EndSCHEMATC
