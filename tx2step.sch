@@ -630,14 +630,14 @@ F 3 "" H 1000 6700 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:BARREL_JACK CON1
+L Connector:Barrel_Jack_Switch CON1
 U 1 1 58BAF2CD
-P 1100 1150
-F 0 "CON1" H 1100 1400 50  0000 C CNN
-F 1 "BARREL_JACK" H 1100 950 50  0000 C CNN
-F 2 "" H 1100 1150 50  0000 C CNN
-F 3 "" H 1100 1150 50  0000 C CNN
-	1    1100 1150
+P 1100 1100
+F 0 "CON1" H 1100 1350 50  0000 C CNN
+F 1 "BARREL_JACK" H 1100 900 50  0000 C CNN
+F 2 "" H 1100 1100 50  0000 C CNN
+F 3 "" H 1100 1100 50  0000 C CNN
+	1    1100 1100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1501,13 +1501,9 @@ Wire Wire Line
 Wire Wire Line
 	2700 2550 2850 2550
 Wire Wire Line
-	1400 1050 1400 1000
-Wire Wire Line
 	1400 1000 1600 1000
 Wire Wire Line
 	1600 1200 1400 1200
-Wire Wire Line
-	1400 1200 1400 1150
 Wire Wire Line
 	1600 1200 1600 1300
 Wire Wire Line
@@ -1669,7 +1665,6 @@ NoConn ~ 10150 5300
 NoConn ~ 9400 5100
 NoConn ~ 9400 4600
 NoConn ~ 6200 4050
-NoConn ~ 1400 1250
 Wire Wire Line
 	8750 1850 9400 1850
 Wire Wire Line
@@ -1899,4 +1894,7 @@ F 3 "" H 6400 6200 50  0001 C CNN
 	1    6400 6200
 	1    0    0    -1  
 $EndComp
+Connection ~ 1400 1200
+Wire Wire Line
+	1400 1100 1400 1200
 $EndSCHEMATC
