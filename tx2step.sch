@@ -25,7 +25,7 @@ F 3 "" H 9950 1600 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L tx2step-rescue:D_TVS D5
+L Device:D_TVS D5
 U 1 1 58B52001
 P 8900 1550
 F 0 "D5" H 8900 1650 50  0000 C CNN
@@ -36,7 +36,7 @@ F 3 "" H 8900 1550 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L tx2step-rescue:D_TVS D7
+L Device:D_TVS D7
 U 1 1 58B52074
 P 9200 2050
 F 0 "D7" H 9200 2150 50  0000 C CNN
@@ -58,7 +58,7 @@ F 3 "" H 9950 4650 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L tx2step-rescue:D_TVS D6
+L Device:D_TVS D6
 U 1 1 58B53591
 P 8900 4600
 F 0 "D6" H 8900 4700 50  0000 C CNN
@@ -69,7 +69,7 @@ F 3 "" H 8900 4600 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L tx2step-rescue:D_TVS D8
+L Device:D_TVS D8
 U 1 1 58B539C6
 P 9200 5100
 F 0 "D8" H 9200 5200 50  0000 C CNN
@@ -80,7 +80,7 @@ F 3 "" H 9200 5100 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C15
+L Device:C_Small C15
 U 1 1 58B7B49A
 P 7850 950
 F 0 "C15" H 7860 1020 50  0000 L CNN
@@ -91,7 +91,7 @@ F 3 "" H 7850 950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:CP_Small C17
+L Device:CP_Small C17
 U 1 1 58B7B4F6
 P 8150 950
 F 0 "C17" H 8160 1020 50  0000 L CNN
@@ -102,7 +102,7 @@ F 3 "" H 8150 950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C16
+L Device:C_Small C16
 U 1 1 58B7BBFB
 P 7850 4000
 F 0 "C16" H 7860 4070 50  0000 L CNN
@@ -113,7 +113,7 @@ F 3 "" H 7850 4000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:CP_Small C18
+L Device:CP_Small C18
 U 1 1 58B7BF61
 P 8150 4000
 F 0 "C18" H 8160 4070 50  0000 L CNN
@@ -124,7 +124,7 @@ F 3 "" H 8150 4000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR037
+L power:GND #PWR037
 U 1 1 58B7CB33
 P 8150 4100
 F 0 "#PWR037" H 8150 3850 50  0001 C CNN
@@ -135,7 +135,7 @@ F 3 "" H 8150 4100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR036
+L power:GND #PWR036
 U 1 1 58B7CE27
 P 8150 1050
 F 0 "#PWR036" H 8150 800 50  0001 C CNN
@@ -146,7 +146,7 @@ F 3 "" H 8150 1050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR033
+L power:GND #PWR033
 U 1 1 58B7D2BB
 P 7650 3150
 F 0 "#PWR033" H 7650 2900 50  0001 C CNN
@@ -157,7 +157,7 @@ F 3 "" H 7650 3150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR035
+L power:GND #PWR035
 U 1 1 58B7D41F
 P 7650 6200
 F 0 "#PWR035" H 7650 5950 50  0001 C CNN
@@ -168,7 +168,7 @@ F 3 "" H 7650 6200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:DRV8834 IC5
+L tx2step:DRV8834 IC5
 U 1 1 58B80041
 P 7650 2150
 F 0 "IC5" H 7100 3100 60  0000 C CNN
@@ -179,7 +179,7 @@ F 3 "" H 7100 3100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:MCP73831 IC3
+L tx2step:MCP73831 IC3
 U 1 1 58B862EA
 P 2900 7300
 F 0 "IC3" H 2650 7600 60  0000 C CNN
@@ -190,7 +190,7 @@ F 3 "" H 2650 7600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:Crystal Y1
+L Device:Crystal Y1
 U 1 1 58B8A677
 P 4800 1950
 F 0 "Y1" H 4800 2100 50  0000 C CNN
@@ -201,7 +201,7 @@ F 3 "" H 4800 1950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C9
+L Device:C_Small C9
 U 1 1 58B8A7FC
 P 4950 2300
 F 0 "C9" H 4960 2370 50  0000 L CNN
@@ -212,7 +212,7 @@ F 3 "" H 4950 2300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C10
+L Device:C_Small C10
 U 1 1 58B8A9A7
 P 4650 2300
 F 0 "C10" H 4660 2370 50  0000 L CNN
@@ -223,7 +223,7 @@ F 3 "" H 4650 2300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR023
+L power:GND #PWR023
 U 1 1 58B8AC8A
 P 4800 2550
 F 0 "#PWR023" H 4800 2300 50  0001 C CNN
@@ -234,7 +234,7 @@ F 3 "" H 4800 2550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C20
+L Device:C_Small C20
 U 1 1 58B95FE4
 P 8450 4000
 F 0 "C20" H 8460 4070 50  0000 L CNN
@@ -245,7 +245,7 @@ F 3 "" H 8450 4000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C19
+L Device:C_Small C19
 U 1 1 58B96443
 P 8450 950
 F 0 "C19" H 8460 1020 50  0000 L CNN
@@ -256,7 +256,7 @@ F 3 "" H 8450 950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R13
+L Device:R_Small R13
 U 1 1 58B971C6
 P 6600 2700
 F 0 "R13" H 6630 2720 50  0000 L CNN
@@ -267,7 +267,7 @@ F 3 "" H 6600 2700 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R14
+L Device:R_Small R14
 U 1 1 58B97329
 P 6600 5750
 F 0 "R14" H 6630 5770 50  0000 L CNN
@@ -278,7 +278,7 @@ F 3 "" H 6600 5750 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR028
+L power:GND #PWR028
 U 1 1 58B980BD
 P 6350 5750
 F 0 "#PWR028" H 6350 5500 50  0001 C CNN
@@ -289,7 +289,7 @@ F 3 "" H 6350 5750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C22
+L Device:C_Small C22
 U 1 1 58B996D7
 P 9250 5550
 F 0 "C22" H 9260 5620 50  0000 L CNN
@@ -300,7 +300,7 @@ F 3 "" H 9250 5550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C21
+L Device:C_Small C21
 U 1 1 58B99B41
 P 9250 2500
 F 0 "C21" H 9260 2570 50  0000 L CNN
@@ -311,7 +311,7 @@ F 3 "" H 9250 2500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:TPS61202 IC4
+L tx2step:TPS61202 IC4
 U 1 1 58BACDA2
 P 4850 6500
 F 0 "IC4" H 4550 6950 60  0000 C CNN
@@ -322,7 +322,7 @@ F 3 "" H 4600 7000 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:TPS2113A IC1
+L tx2step:TPS2113A IC1
 U 1 1 58BAD11D
 P 1400 6250
 F 0 "IC1" H 1200 6550 60  0000 C CNN
@@ -344,7 +344,7 @@ F 3 "" H 950 1050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:CP_Small C2
+L Device:CP_Small C2
 U 1 1 58BB0FC8
 P 2000 1050
 F 0 "C2" H 2010 1120 50  0000 L CNN
@@ -355,7 +355,7 @@ F 3 "" H 2000 1050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:Battery_Cell BT1
+L Device:Battery_Cell BT1
 U 1 1 58BB419A
 P 3950 7400
 F 0 "BT1" H 4050 7500 50  0000 L CNN
@@ -366,7 +366,7 @@ F 3 "" V 3950 7460 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR017
+L power:GND #PWR017
 U 1 1 58BB4BC9
 P 3950 7650
 F 0 "#PWR017" H 3950 7400 50  0001 C CNN
@@ -377,7 +377,7 @@ F 3 "" H 3950 7650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R6
+L Device:R_Small R6
 U 1 1 58BB4E52
 P 3500 7400
 F 0 "R6" H 3530 7420 50  0000 L CNN
@@ -388,7 +388,7 @@ F 3 "" H 3500 7400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C8
+L Device:C_Small C8
 U 1 1 58BB5CEC
 P 3700 7350
 F 0 "C8" H 3710 7420 50  0000 L CNN
@@ -399,7 +399,7 @@ F 3 "" H 3700 7350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C3
+L Device:C_Small C3
 U 1 1 58BB7ED6
 P 1950 7300
 F 0 "C3" H 1960 7370 50  0000 L CNN
@@ -410,7 +410,7 @@ F 3 "" H 1950 7300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR01
+L power:GND #PWR01
 U 1 1 58BC2867
 P 750 6650
 F 0 "#PWR01" H 750 6400 50  0001 C CNN
@@ -421,7 +421,7 @@ F 3 "" H 750 6650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R1
+L Device:R_Small R1
 U 1 1 58BC2C2C
 P 900 6500
 F 0 "R1" H 930 6520 50  0000 L CNN
@@ -432,7 +432,7 @@ F 3 "" H 900 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C4
+L Device:C_Small C4
 U 1 1 58BC8C73
 P 2000 6500
 F 0 "C4" H 2010 6570 50  0000 L CNN
@@ -443,7 +443,7 @@ F 3 "" H 2000 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR011
+L power:GND #PWR011
 U 1 1 58BC8F6B
 P 1950 7500
 F 0 "#PWR011" H 1950 7250 50  0001 C CNN
@@ -454,7 +454,7 @@ F 3 "" H 1950 7500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C5
+L Device:C_Small C5
 U 1 1 58BC9867
 P 2450 6500
 F 0 "C5" H 2460 6570 50  0000 L CNN
@@ -465,7 +465,7 @@ F 3 "" H 2450 6500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:LED D2
+L Device:LED D2
 U 1 1 58BD09A8
 P 3050 1000
 F 0 "D2" H 3050 1100 50  0000 C CNN
@@ -476,7 +476,7 @@ F 3 "" H 3050 1000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R5
+L Device:R_Small R5
 U 1 1 58BD0C23
 P 2700 1000
 F 0 "R5" H 2730 1020 50  0000 L CNN
@@ -487,7 +487,7 @@ F 3 "" H 2700 1000 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR016
+L power:GND #PWR016
 U 1 1 58BD148B
 P 2450 1000
 F 0 "#PWR016" H 2450 750 50  0001 C CNN
@@ -498,7 +498,7 @@ F 3 "" H 2450 1000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:+5V #PWR07
+L power:+5V #PWR07
 U 1 1 58BD7FF7
 P 2000 850
 F 0 "#PWR07" H 2000 700 50  0001 C CNN
@@ -509,7 +509,7 @@ F 3 "" H 2000 850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR08
+L power:GND #PWR08
 U 1 1 58BD80AA
 P 2000 1250
 F 0 "#PWR08" H 2000 1000 50  0001 C CNN
@@ -520,7 +520,7 @@ F 3 "" H 2000 1250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:+5V #PWR010
+L power:+5V #PWR010
 U 1 1 58BDC748
 P 1950 7050
 F 0 "#PWR010" H 1950 6900 50  0001 C CNN
@@ -531,7 +531,7 @@ F 3 "" H 1950 7050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:+5V #PWR012
+L power:+5V #PWR012
 U 1 1 58BDD3EF
 P 2000 6100
 F 0 "#PWR012" H 2000 5950 50  0001 C CNN
@@ -542,7 +542,7 @@ F 3 "" H 2000 6100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR013
+L power:GND #PWR013
 U 1 1 58BDD6F5
 P 2000 6600
 F 0 "#PWR013" H 2000 6350 50  0001 C CNN
@@ -553,7 +553,7 @@ F 3 "" H 2000 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR014
+L power:GND #PWR014
 U 1 1 58BDD81C
 P 2450 6600
 F 0 "#PWR014" H 2450 6350 50  0001 C CNN
@@ -564,7 +564,7 @@ F 3 "" H 2450 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C6
+L Device:C_Small C6
 U 1 1 58BE349E
 P 2950 6400
 F 0 "C6" H 2960 6470 50  0000 L CNN
@@ -575,7 +575,7 @@ F 3 "" H 2950 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C7
+L Device:C_Small C7
 U 1 1 58BE357B
 P 3250 6400
 F 0 "C7" H 3260 6470 50  0000 L CNN
@@ -586,7 +586,7 @@ F 3 "" H 3250 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR018
+L power:GND #PWR018
 U 1 1 58BE3BEA
 P 4100 6800
 F 0 "#PWR018" H 4100 6550 50  0001 C CNN
@@ -597,7 +597,7 @@ F 3 "" H 4100 6800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:L L1
+L Device:L L1
 U 1 1 58BE5332
 P 4850 5750
 F 0 "L1" V 4800 5750 50  0000 C CNN
@@ -608,7 +608,7 @@ F 3 "" H 4850 5750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR026
+L power:GND #PWR026
 U 1 1 58BE62BC
 P 5700 6900
 F 0 "#PWR026" H 5700 6650 50  0001 C CNN
@@ -619,7 +619,7 @@ F 3 "" H 5700 6900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C11
+L Device:C_Small C11
 U 1 1 58BE686E
 P 5600 6600
 F 0 "C11" H 5610 6670 50  0000 L CNN
@@ -630,7 +630,7 @@ F 3 "" H 5600 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C12
+L Device:C_Small C12
 U 1 1 58BE7064
 P 5750 6400
 F 0 "C12" H 5760 6470 50  0000 L CNN
@@ -641,7 +641,7 @@ F 3 "" H 5750 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C13
+L Device:C_Small C13
 U 1 1 58BE713C
 P 6000 6400
 F 0 "C13" H 6010 6470 50  0000 L CNN
@@ -652,7 +652,7 @@ F 3 "" H 6000 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:C_Small C14
+L Device:C_Small C14
 U 1 1 58BE720B
 P 6200 6400
 F 0 "C14" H 6210 6470 50  0000 L CNN
@@ -663,7 +663,7 @@ F 3 "" H 6200 6400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:SW_DIP_x02 SW1
+L Switch:SW_DIP_x02 SW1
 U 1 1 58BF3D9B
 P 3350 1800
 F 0 "SW1" H 3350 2050 50  0000 C CNN
@@ -674,7 +674,7 @@ F 3 "" H 3350 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR015
+L power:GND #PWR015
 U 1 1 58BF3ECD
 P 2800 1800
 F 0 "#PWR015" H 2800 1550 50  0001 C CNN
@@ -689,7 +689,7 @@ NoConn ~ 6850 1400
 NoConn ~ 6850 4450
 NoConn ~ 6850 5850
 $Comp
-L tx2step-rescue:LED_Small D3
+L Device:LED_Small D3
 U 1 1 58B8427E
 P 8700 2200
 F 0 "D3" H 8650 2325 50  0000 L CNN
@@ -700,7 +700,7 @@ F 3 "" V 8700 2200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:LED_Small D4
+L Device:LED_Small D4
 U 1 1 58B847EB
 P 8700 5250
 F 0 "D4" H 8650 5375 50  0000 L CNN
@@ -711,7 +711,7 @@ F 3 "" V 8700 5250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R19
+L Device:R_Small R19
 U 1 1 58B85106
 P 9500 2300
 F 0 "R19" H 9530 2320 50  0000 L CNN
@@ -722,7 +722,7 @@ F 3 "" H 9500 2300 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R20
+L Device:R_Small R20
 U 1 1 58B85B75
 P 9550 5350
 F 0 "R20" H 9580 5370 50  0000 L CNN
@@ -1187,7 +1187,7 @@ F 3 "" H 10250 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR020
+L power:GND #PWR020
 U 1 1 58B895AD
 P 4700 1200
 F 0 "#PWR020" H 4700 950 50  0001 C CNN
@@ -1199,7 +1199,7 @@ F 3 "" H 4700 1200 50  0000 C CNN
 $EndComp
 Connection ~ 4700 1000
 $Comp
-L tx2step-rescue:R_Small R8
+L Device:R_Small R8
 U 1 1 58B87737
 P 4700 1100
 F 0 "R8" H 4730 1120 50  0000 L CNN
@@ -1221,7 +1221,7 @@ F 3 "" H 4700 800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:R_Small R7
+L Device:R_Small R7
 U 1 1 58B876D6
 P 4700 900
 F 0 "R7" H 4730 920 50  0000 L CNN
@@ -1243,7 +1243,7 @@ F 3 "" H 4950 3500 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR038
+L power:GND #PWR038
 U 1 1 58B9897E
 P 9250 2650
 F 0 "#PWR038" H 9250 2400 50  0001 C CNN
@@ -1256,7 +1256,7 @@ $EndComp
 Wire Wire Line
 	9250 2650 9250 2600
 $Comp
-L tx2step-rescue:GND #PWR039
+L power:GND #PWR039
 U 1 1 58B993B1
 P 9250 5750
 F 0 "#PWR039" H 9250 5500 50  0001 C CNN
@@ -1269,7 +1269,7 @@ $EndComp
 Wire Wire Line
 	9250 5750 9250 5650
 $Comp
-L tx2step-rescue:C_Small C1
+L Device:C_Small C1
 U 1 1 58B4E57D
 P 2300 2250
 F 0 "C1" H 2310 2320 50  0000 L CNN
@@ -1609,7 +1609,7 @@ F 3 "" H 5550 5100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:DRV8834 IC6
+L tx2step:DRV8834 IC6
 U 1 1 58B8147E
 P 7650 5200
 F 0 "IC6" H 7100 6150 60  0000 C CNN
@@ -1687,7 +1687,7 @@ Connection ~ 9200 4950
 Text Label 6750 1900 2    60   ~ 0
 RA_PWR
 $Comp
-L tx2step-rescue:GND #PWR027
+L power:GND #PWR027
 U 1 1 58B97615
 P 6350 2700
 F 0 "#PWR027" H 6350 2450 50  0001 C CNN
@@ -1698,7 +1698,7 @@ F 3 "" H 6350 2700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:GND #PWR030
+L power:GND #PWR030
 U 1 1 58B92C90
 P 6250 1700
 F 0 "#PWR030" H 6250 1450 50  0001 C CNN
