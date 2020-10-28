@@ -190,39 +190,6 @@ F 3 "" H 2650 7600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:SW_SPDT_MSM SW3
-U 1 1 58B86814
-P 5100 1000
-F 0 "SW3" H 5100 1200 50  0000 C CNN
-F 1 "SW_SPDT_MSM" H 5100 800 50  0000 C CNN
-F 2 "" H 5100 1000 50  0001 C CNN
-F 3 "" H 5100 1000 50  0001 C CNN
-	1    5100 1000
-	1    0    0    -1  
-$EndComp
-$Comp
-L tx2step-rescue:POT RV1
-U 1 1 58B868AD
-P 5950 1000
-F 0 "RV1" V 5775 1000 50  0000 C CNN
-F 1 "POT" V 5850 1000 50  0000 C CNN
-F 2 "" H 5950 1000 50  0000 C CNN
-F 3 "" H 5950 1000 50  0000 C CNN
-	1    5950 1000
-	1    0    0    -1  
-$EndComp
-$Comp
-L tx2step-rescue:GND #PWR025
-U 1 1 58B87520
-P 5950 1150
-F 0 "#PWR025" H 5950 900 50  0001 C CNN
-F 1 "GND" H 5950 1000 50  0000 C CNN
-F 2 "" H 5950 1150 50  0000 C CNN
-F 3 "" H 5950 1150 50  0000 C CNN
-	1    5950 1150
-	1    0    0    -1  
-$EndComp
-$Comp
 L tx2step-rescue:Crystal Y1
 U 1 1 58B8A677
 P 4800 1950
@@ -985,8 +952,6 @@ Connection ~ 4200 6800
 Connection ~ 3250 6200
 Connection ~ 2950 6200
 Wire Wire Line
-	3900 6400 4300 6400
-Wire Wire Line
 	4700 5750 4200 5750
 Wire Wire Line
 	4200 5750 4200 6200
@@ -1136,17 +1101,6 @@ Wire Wire Line
 Wire Wire Line
 	2000 850  2000 950 
 $Comp
-L power:VCC #PWR024
-U 1 1 5FE50164
-P 5950 850
-F 0 "#PWR024" H 5950 700 50  0001 C CNN
-F 1 "VCC" H 5965 1023 50  0000 C CNN
-F 2 "" H 5950 850 50  0001 C CNN
-F 3 "" H 5950 850 50  0001 C CNN
-	1    5950 850 
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:VCC #PWR032
 U 1 1 5FEE7A1D
 P 7650 750
@@ -1243,8 +1197,6 @@ F 3 "" H 4700 1200 50  0000 C CNN
 	1    4700 1200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4700 1000 4900 1000
 Connection ~ 4700 1000
 $Comp
 L tx2step-rescue:R_Small R8
@@ -1443,10 +1395,6 @@ Text Label 2700 4050 0    60   ~ 0
 GUIDE_RATE
 Wire Wire Line
 	4550 1000 4700 1000
-Wire Wire Line
-	6100 1000 6250 1000
-Text Label 6250 1000 0    60   ~ 0
-GUIDE_RATE
 Text Label 4550 1000 2    60   ~ 0
 TRACK_RATE
 Wire Wire Line
@@ -1835,36 +1783,6 @@ F 3 "" H 6250 4750 50  0001 C CNN
 	1    6250 4750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5300 900  5400 900 
-Wire Wire Line
-	5400 900  5400 850 
-Wire Wire Line
-	5300 1100 5400 1100
-Wire Wire Line
-	5400 1100 5400 1250
-$Comp
-L power:GND #PWR031
-U 1 1 6325C28F
-P 5400 1250
-F 0 "#PWR031" H 5400 1000 50  0001 C CNN
-F 1 "GND" H 5405 1077 50  0000 C CNN
-F 2 "" H 5400 1250 50  0001 C CNN
-F 3 "" H 5400 1250 50  0001 C CNN
-	1    5400 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR022
-U 1 1 6325D155
-P 5400 850
-F 0 "#PWR022" H 5400 700 50  0001 C CNN
-F 1 "VCC" H 5415 1023 50  0000 C CNN
-F 2 "" H 5400 850 50  0001 C CNN
-F 3 "" H 5400 850 50  0001 C CNN
-	1    5400 850 
-	1    0    0    -1  
-$EndComp
 Connection ~ 2000 950 
 Connection ~ 2000 1150
 Wire Wire Line
@@ -1877,26 +1795,6 @@ Wire Wire Line
 	1250 1150 2000 1150
 Text Label 2700 4250 0    60   ~ 0
 DC_SENSE
-Wire Wire Line
-	3100 6800 3500 6800
-$Comp
-L Switch:SW_SPST SW2
-U 1 1 6347EBFA
-P 3700 6700
-F 0 "SW2" H 3700 6935 50  0000 C CNN
-F 1 "SW_SPST" H 3700 6844 50  0000 C CNN
-F 2 "" H 3700 6700 50  0001 C CNN
-F 3 "~" H 3700 6700 50  0001 C CNN
-	1    3700 6700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3900 6400 3900 6700
-Wire Wire Line
-	3500 6700 3500 6800
-Connection ~ 3500 6800
-Wire Wire Line
-	3500 6800 4100 6800
 Wire Wire Line
 	3250 6200 3500 6200
 $Comp
@@ -1913,7 +1811,117 @@ $EndComp
 Connection ~ 3500 6200
 Wire Wire Line
 	3500 6200 4050 6200
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J5
+U 1 1 635FE306
+P 5950 1000
+F 0 "J5" H 6000 1317 50  0000 C CNN
+F 1 "CHASSIS_SWITCHES" H 6000 1226 50  0000 C CNN
+F 2 "" H 5950 1000 50  0001 C CNN
+F 3 "~" H 5950 1000 50  0001 C CNN
+	1    5950 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 1000 6350 1000
+Wire Wire Line
+	5750 1000 5650 1000
+Text Label 6350 1000 0    60   ~ 0
+GUIDE_RATE
+Text Label 5650 1000 2    60   ~ 0
+TRACK_RATE
+Text Label 6350 1200 0    60   ~ 0
+SW_POWER
+Wire Wire Line
+	6350 1200 6250 1200
+Wire Wire Line
+	5750 1200 5650 1200
+$Comp
+L power:GND #PWR025
+U 1 1 636F7BE1
+P 5650 1200
+F 0 "#PWR025" H 5650 950 50  0001 C CNN
+F 1 "GND" H 5655 1027 50  0000 C CNN
+F 2 "" H 5650 1200 50  0001 C CNN
+F 3 "" H 5650 1200 50  0001 C CNN
+	1    5650 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 900  6450 900 
+Wire Wire Line
+	6450 900  6450 650 
+Wire Wire Line
+	6450 650  6550 650 
+Wire Wire Line
+	5750 900  5550 900 
+Wire Wire Line
+	5550 900  5550 650 
+Wire Wire Line
+	5550 650  5450 650 
+$Comp
+L power:GND #PWR031
+U 1 1 63769B7F
+P 6550 650
+F 0 "#PWR031" H 6550 400 50  0001 C CNN
+F 1 "GND" H 6555 477 50  0000 C CNN
+F 2 "" H 6550 650 50  0001 C CNN
+F 3 "" H 6550 650 50  0001 C CNN
+	1    6550 650 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR024
+U 1 1 6376A908
+P 5450 650
+F 0 "#PWR024" H 5450 400 50  0001 C CNN
+F 1 "GND" H 5455 477 50  0000 C CNN
+F 2 "" H 5450 650 50  0001 C CNN
+F 3 "" H 5450 650 50  0001 C CNN
+	1    5450 650 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 1100 5500 1100
+$Comp
+L power:VCC #PWR046
+U 1 1 637A432D
+P 7000 1100
+F 0 "#PWR046" H 7000 950 50  0001 C CNN
+F 1 "VCC" H 7015 1273 50  0000 C CNN
+F 2 "" H 7000 1100 50  0001 C CNN
+F 3 "" H 7000 1100 50  0001 C CNN
+	1    7000 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR022
+U 1 1 637A531E
+P 5300 1250
+F 0 "#PWR022" H 5300 1100 50  0001 C CNN
+F 1 "VCC" H 5315 1423 50  0000 C CNN
+F 2 "" H 5300 1250 50  0001 C CNN
+F 3 "" H 5300 1250 50  0001 C CNN
+	1    5300 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 1250 5500 1250
+Wire Wire Line
+	5500 1100 5500 1250
+Wire Wire Line
+	6250 1100 7000 1100
+Wire Wire Line
+	3100 6800 4100 6800
 Wire Wire Line
 	3500 6400 3900 6400
+Text Label 3850 6650 2    60   ~ 0
+SW_POWER
+Wire Wire Line
+	3850 6650 3900 6650
+Wire Wire Line
+	3900 6650 3900 6400
 Connection ~ 3900 6400
+Wire Wire Line
+	3900 6400 4300 6400
 $EndSCHEMATC
