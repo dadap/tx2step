@@ -630,17 +630,6 @@ F 3 "" H 4100 6800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tx2step-rescue:SW_DPDT_x2 SW2
-U 1 1 58BE4643
-P 3700 6400
-F 0 "SW2" H 3700 6570 50  0000 C CNN
-F 1 "SW_DPDT_x2" H 3700 6200 50  0000 C CNN
-F 2 "" H 3700 6400 50  0001 C CNN
-F 3 "" H 3700 6400 50  0001 C CNN
-	1    3700 6400
-	-1   0    0    -1  
-$EndComp
-$Comp
 L tx2step-rescue:L L1
 U 1 1 58BE5332
 P 4850 5750
@@ -980,8 +969,6 @@ Wire Wire Line
 Wire Wire Line
 	3250 6550 3250 6500
 Wire Wire Line
-	3100 6800 3500 6800
-Wire Wire Line
 	3100 6550 3100 6800
 Connection ~ 4100 6800
 Connection ~ 3100 6550
@@ -999,8 +986,6 @@ Connection ~ 3250 6200
 Connection ~ 2950 6200
 Wire Wire Line
 	3900 6400 4300 6400
-Wire Wire Line
-	3500 6500 3500 6800
 Wire Wire Line
 	4700 5750 4200 5750
 Wire Wire Line
@@ -1043,12 +1028,6 @@ Connection ~ 5700 6800
 Wire Wire Line
 	6400 6300 6400 6200
 Connection ~ 6200 6300
-Wire Wire Line
-	3500 6800 4100 6800
-Connection ~ 3500 6800
-Wire Wire Line
-	3500 6300 3500 6200
-Connection ~ 3500 6200
 Wire Wire Line
 	2800 1800 2950 1800
 Wire Wire Line
@@ -1133,8 +1112,6 @@ Wire Wire Line
 Wire Wire Line
 	4200 6800 4300 6800
 Wire Wire Line
-	3250 6200 3500 6200
-Wire Wire Line
 	2950 6200 3250 6200
 Wire Wire Line
 	4200 6200 4300 6200
@@ -1154,8 +1131,6 @@ Wire Wire Line
 	5700 6800 5600 6800
 Wire Wire Line
 	6200 6300 6400 6300
-Wire Wire Line
-	3500 6200 4050 6200
 Wire Wire Line
 	2950 1800 3050 1800
 Wire Wire Line
@@ -1902,4 +1877,43 @@ Wire Wire Line
 	1250 1150 2000 1150
 Text Label 2700 4250 0    60   ~ 0
 DC_SENSE
+Wire Wire Line
+	3100 6800 3500 6800
+$Comp
+L Switch:SW_SPST SW2
+U 1 1 6347EBFA
+P 3700 6700
+F 0 "SW2" H 3700 6935 50  0000 C CNN
+F 1 "SW_SPST" H 3700 6844 50  0000 C CNN
+F 2 "" H 3700 6700 50  0001 C CNN
+F 3 "~" H 3700 6700 50  0001 C CNN
+	1    3700 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 6400 3900 6700
+Wire Wire Line
+	3500 6700 3500 6800
+Connection ~ 3500 6800
+Wire Wire Line
+	3500 6800 4100 6800
+Wire Wire Line
+	3250 6200 3500 6200
+$Comp
+L Device:R_Small R4
+U 1 1 635AA68E
+P 3500 6300
+F 0 "R4" H 3559 6346 50  0000 L CNN
+F 1 "4.7KΩ" H 3559 6255 50  0000 L CNN
+F 2 "" H 3500 6300 50  0001 C CNN
+F 3 "~" H 3500 6300 50  0001 C CNN
+	1    3500 6300
+	1    0    0    -1  
+$EndComp
+Connection ~ 3500 6200
+Wire Wire Line
+	3500 6200 4050 6200
+Wire Wire Line
+	3500 6400 3900 6400
+Connection ~ 3900 6400
 $EndSCHEMATC
