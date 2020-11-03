@@ -14,17 +14,6 @@ Comment3 "A dual-axis motor controller for equatorial telescope mounts"
 Comment4 "Texas Two Step:"
 $EndDescr
 $Comp
-L Connector:6P4C J2
-U 1 1 58B5172F
-P 9950 1600
-F 0 "J2" H 10150 2100 50  0000 C CNN
-F 1 "6P4C" H 9800 2100 50  0000 C CNN
-F 2 "Connector_RJ:RJ12_Amphenol_54601" H 9950 1600 50  0001 C CNN
-F 3 "" H 9950 1600 50  0000 C CNN
-	1    9950 1600
-	-1   0    0    1   
-$EndComp
-$Comp
 L Device:D_TVS D5
 U 1 1 58B52001
 P 8900 1550
@@ -45,17 +34,6 @@ F 2 "Diode_SMD:D_0603_1608Metric" H 9200 2050 50  0001 C CNN
 F 3 "" H 9200 2050 50  0000 C CNN
 	1    9200 2050
 	0    1    1    0   
-$EndComp
-$Comp
-L Connector:6P4C J3
-U 1 1 58B53180
-P 9950 4650
-F 0 "J3" H 10150 5150 50  0000 C CNN
-F 1 "6P4C" H 9800 5150 50  0000 C CNN
-F 2 "Connector_RJ:RJ12_Amphenol_54601" H 9950 4650 50  0001 C CNN
-F 3 "" H 9950 4650 50  0000 C CNN
-	1    9950 4650
-	-1   0    0    1   
 $EndComp
 $Comp
 L Device:D_TVS D6
@@ -1924,4 +1902,26 @@ Wire Wire Line
 Connection ~ 3900 6400
 Wire Wire Line
 	3900 6400 4300 6400
+$Comp
+L tx2step:6P4Cx2 J2
+U 1 1 5FB324B3
+P 9950 1600
+F 0 "J2" H 10007 2167 50  0000 C CNN
+F 1 "6P4Cx2" H 10007 2076 50  0000 C CNN
+F 2 "Connector_Multicomp:6P4Cx2" V 9950 1625 50  0001 C CNN
+F 3 "~" V 9950 1625 50  0001 C CNN
+	1    9950 1600
+	-1   0    0    1   
+$EndComp
+$Comp
+L tx2step:6P4Cx2 J2
+U 2 1 5FB33FF1
+P 9950 4650
+F 0 "J2" H 10007 5217 50  0000 C CNN
+F 1 "6P4Cx2" H 10007 5126 50  0000 C CNN
+F 2 "Connector_Multicomp:6P4Cx2" V 9950 4675 50  0001 C CNN
+F 3 "~" V 9950 4675 50  0001 C CNN
+	2    9950 4650
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

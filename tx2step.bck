@@ -1,3 +1,9 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 6P4Cx2
+D RJ connector, 6P4C (6 positions 4 connected), 2 units
+K 6P4C RJ female connector
+F ~
+$ENDCMP
+#
 #End Doc Library
