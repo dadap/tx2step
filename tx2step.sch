@@ -1258,9 +1258,7 @@ F 3 "" H 2300 2250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2000 2150 2000 2500
-Wire Wire Line
-	2100 2150 2100 2550
+	2100 2150 2100 2500
 $Comp
 L power:GND #PWR06
 U 1 1 613527CF
@@ -1287,12 +1285,7 @@ Connection ~ 2300 2150
 Wire Wire Line
 	1350 2850 1350 2500
 Wire Wire Line
-	1350 2500 2000 2500
-Wire Wire Line
 	1350 2850 1400 2850
-Connection ~ 2000 2500
-Wire Wire Line
-	2000 2500 2000 2550
 Wire Wire Line
 	2600 2850 2700 2850
 Text Label 2700 2850 0    60   ~ 0
@@ -1629,9 +1622,6 @@ Wire Wire Line
 Wire Wire Line
 	5050 4800 5550 4800
 Wire Wire Line
-	2000 2150 2100 2150
-Connection ~ 2100 2150
-Wire Wire Line
 	2100 2150 2300 2150
 Wire Wire Line
 	6850 1500 6750 1500
@@ -1935,4 +1925,47 @@ Wire Wire Line
 Wire Wire Line
 	4800 1700 4800 1750
 Connection ~ 4350 2150
+Wire Wire Line
+	1350 2500 2100 2500
+Connection ~ 2100 2500
+Wire Wire Line
+	2100 2500 2100 2550
+Wire Wire Line
+	2000 2550 2000 2000
+Wire Wire Line
+	2000 2000 1900 2000
+$Comp
+L Device:C_Small C23
+U 1 1 5FD2AE45
+P 1900 2100
+F 0 "C23" H 1992 2146 50  0000 L CNN
+F 1 "10µF" H 1992 2055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1900 2100 50  0001 C CNN
+F 3 "~" H 1900 2100 50  0001 C CNN
+	1    1900 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR047
+U 1 1 5FD2CD50
+P 1900 2000
+F 0 "#PWR047" H 1900 1850 50  0001 C CNN
+F 1 "VCC" H 1915 2173 50  0000 C CNN
+F 2 "" H 1900 2000 50  0001 C CNN
+F 3 "" H 1900 2000 50  0001 C CNN
+	1    1900 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR048
+U 1 1 5FD2DD4E
+P 1900 2200
+F 0 "#PWR048" H 1900 1950 50  0001 C CNN
+F 1 "GND" H 1905 2027 50  0000 C CNN
+F 2 "" H 1900 2200 50  0001 C CNN
+F 3 "" H 1900 2200 50  0001 C CNN
+	1    1900 2200
+	1    0    0    -1  
+$EndComp
+Connection ~ 1900 2000
 $EndSCHEMATC
