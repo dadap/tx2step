@@ -802,12 +802,6 @@ Wire Wire Line
 Wire Wire Line
 	6750 2100 6750 3400
 Wire Wire Line
-	6750 3400 8600 3400
-Wire Wire Line
-	8600 3400 8600 2400
-Wire Wire Line
-	8450 2400 8600 2400
-Wire Wire Line
 	6850 5150 6750 5150
 Wire Wire Line
 	6750 5150 6750 6450
@@ -846,9 +840,6 @@ Wire Wire Line
 Wire Wire Line
 	6700 5750 6850 5750
 Connection ~ 8600 5450
-Connection ~ 8600 2400
-Wire Wire Line
-	6850 2400 6850 2500
 Wire Wire Line
 	3950 7500 3950 7600
 Wire Wire Line
@@ -1027,8 +1018,6 @@ Wire Wire Line
 Wire Wire Line
 	8600 5450 9250 5450
 Wire Wire Line
-	8600 2400 9250 2400
-Wire Wire Line
 	3500 7600 3700 7600
 Wire Wire Line
 	3950 7600 3950 7650
@@ -1139,31 +1128,6 @@ Wire Wire Line
 	9600 2300 9900 2300
 Wire Wire Line
 	9650 5350 9900 5350
-Wire Wire Line
-	6850 2400 6850 2300
-Connection ~ 6850 2400
-$Comp
-L Device:R_Network04 RN1
-U 1 1 601700D9
-P 10050 3450
-F 0 "RN1" V 9633 3450 50  0000 C CNN
-F 1 "R_Network04" V 9724 3450 50  0000 C CNN
-F 2 "Resistor_THT:R_Array_SIP5" V 10325 3450 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 10050 3450 50  0001 C CNN
-	1    10050 3450
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR044
-U 1 1 60193DA1
-P 10250 3250
-F 0 "#PWR044" H 10250 3000 50  0001 C CNN
-F 1 "GND" H 10255 3077 50  0000 C CNN
-F 2 "" H 10250 3250 50  0001 C CNN
-F 3 "" H 10250 3250 50  0001 C CNN
-	1    10250 3250
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR020
 U 1 1 58B895AD
@@ -1544,11 +1508,6 @@ Text Label 4450 3200 2    60   ~ 0
 JS_RA
 Text Label 4450 3900 2    60   ~ 0
 JS_DEC
-Connection ~ 6850 5450
-Wire Wire Line
-	6850 5350 6850 5450
-Wire Wire Line
-	6850 5450 6850 5550
 Text Label 4450 4700 2    60   ~ 0
 ST4_RA-
 Wire Wire Line
@@ -1667,46 +1626,6 @@ Text Label 4550 1950 2    60   ~ 0
 XTAL1
 Text Label 5050 1950 0    60   ~ 0
 XTAL2
-Wire Wire Line
-	8450 2700 8700 2700
-Wire Wire Line
-	8700 2700 8700 3350
-Wire Wire Line
-	8700 3350 9850 3350
-Wire Wire Line
-	9850 3250 8800 3250
-Wire Wire Line
-	8800 3250 8800 2600
-Wire Wire Line
-	8800 2600 8450 2600
-Wire Wire Line
-	8450 5750 8700 5750
-Wire Wire Line
-	8700 5750 8700 6450
-Wire Wire Line
-	8700 6450 10450 6450
-Wire Wire Line
-	10450 6450 10450 3750
-Wire Wire Line
-	10450 3750 9750 3750
-Wire Wire Line
-	9750 3750 9750 3550
-Wire Wire Line
-	9750 3550 9850 3550
-Wire Wire Line
-	9850 3450 9650 3450
-Wire Wire Line
-	9650 3450 9650 3850
-Wire Wire Line
-	9650 3850 10350 3850
-Wire Wire Line
-	10350 3850 10350 6350
-Wire Wire Line
-	8800 6350 8800 5650
-Wire Wire Line
-	8800 5650 8450 5650
-Wire Wire Line
-	8800 6350 10350 6350
 Wire Wire Line
 	6350 5750 6500 5750
 Wire Wire Line
@@ -1968,4 +1887,171 @@ F 3 "" H 1900 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 1900 2000
+Connection ~ 8600 2400
+Wire Wire Line
+	8600 2400 9250 2400
+Wire Wire Line
+	8450 2400 8600 2400
+$Comp
+L power:GND #PWR049
+U 1 1 5FD4F32D
+P 9050 3100
+F 0 "#PWR049" H 9050 2850 50  0001 C CNN
+F 1 "GND" H 9055 2927 50  0000 C CNN
+F 2 "" H 9050 3100 50  0001 C CNN
+F 3 "" H 9050 3100 50  0001 C CNN
+	1    9050 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 3000 9050 3100
+Connection ~ 9050 3000
+Wire Wire Line
+	8900 3000 9050 3000
+Wire Wire Line
+	9050 2700 9050 3000
+Wire Wire Line
+	8900 2700 9050 2700
+Wire Wire Line
+	8500 3000 8700 3000
+Wire Wire Line
+	8500 2700 8500 3000
+Wire Wire Line
+	8450 2700 8500 2700
+Wire Wire Line
+	8700 2600 8700 2700
+Wire Wire Line
+	8450 2600 8700 2600
+$Comp
+L Device:R_Small R10
+U 1 1 5FC43C0E
+P 8800 3000
+F 0 "R10" V 8996 3000 50  0000 C CNN
+F 1 "BISEN" V 8905 3000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8800 3000 50  0001 C CNN
+F 3 "~" H 8800 3000 50  0001 C CNN
+	1    8800 3000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R9
+U 1 1 5FC41B44
+P 8800 2700
+F 0 "R9" V 8604 2700 50  0000 C CNN
+F 1 "AISEN" V 8695 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8800 2700 50  0001 C CNN
+F 3 "~" H 8800 2700 50  0001 C CNN
+	1    8800 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8600 3400 8600 2400
+Wire Wire Line
+	6750 3400 8600 3400
+$Comp
+L Device:R_Small R11
+U 1 1 5FD700A4
+P 8800 5750
+F 0 "R11" V 8604 5750 50  0000 C CNN
+F 1 "AISEN" V 8695 5750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8800 5750 50  0001 C CNN
+F 3 "~" H 8800 5750 50  0001 C CNN
+	1    8800 5750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R12
+U 1 1 5FD743A6
+P 8800 6050
+F 0 "R12" V 8604 6050 50  0000 C CNN
+F 1 "BISEN" V 8695 6050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8800 6050 50  0001 C CNN
+F 3 "~" H 8800 6050 50  0001 C CNN
+	1    8800 6050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8450 5650 8700 5650
+Wire Wire Line
+	8700 5650 8700 5750
+Wire Wire Line
+	8450 5750 8500 5750
+Wire Wire Line
+	8500 5750 8500 6050
+Wire Wire Line
+	8500 6050 8700 6050
+Wire Wire Line
+	8900 5750 9000 5750
+Wire Wire Line
+	9000 5750 9000 6050
+Wire Wire Line
+	8900 6050 9000 6050
+Connection ~ 9000 6050
+Wire Wire Line
+	9000 6050 9000 6150
+$Comp
+L power:GND #PWR044
+U 1 1 5FE00CC7
+P 9000 6150
+F 0 "#PWR044" H 9000 5900 50  0001 C CNN
+F 1 "GND" H 9005 5977 50  0000 C CNN
+F 2 "" H 9000 6150 50  0001 C CNN
+F 3 "" H 9000 6150 50  0001 C CNN
+	1    9000 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT_TRIM RV1
+U 1 1 5FE01894
+P 6350 2450
+F 0 "RV1" H 6280 2496 50  0000 R CNN
+F 1 "R_POT_TRIM" H 6280 2405 50  0000 R CNN
+F 2 "Potentiometer_SMD:Potentiometer_Bourns_TC33X_Vertical" H 6350 2450 50  0001 C CNN
+F 3 "~" H 6350 2450 50  0001 C CNN
+	1    6350 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 2300 6350 2300
+Wire Wire Line
+	6350 2600 6350 2700
+Connection ~ 6350 2700
+Wire Wire Line
+	6500 2450 6800 2450
+Wire Wire Line
+	6800 2450 6800 2400
+Wire Wire Line
+	6800 2400 6850 2400
+Wire Wire Line
+	6850 2500 6800 2500
+Wire Wire Line
+	6800 2500 6800 2450
+Connection ~ 6800 2450
+$Comp
+L Device:R_POT_TRIM RV2
+U 1 1 5FEE52F3
+P 6350 5500
+F 0 "RV2" H 6280 5546 50  0000 R CNN
+F 1 "R_POT_TRIM" H 6280 5455 50  0000 R CNN
+F 2 "Potentiometer_SMD:Potentiometer_Bourns_TC33X_Vertical" H 6350 5500 50  0001 C CNN
+F 3 "~" H 6350 5500 50  0001 C CNN
+	1    6350 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 5350 6350 5350
+Wire Wire Line
+	6350 5650 6350 5750
+Connection ~ 6350 5750
+Wire Wire Line
+	6500 5500 6800 5500
+Wire Wire Line
+	6800 5500 6800 5450
+Wire Wire Line
+	6800 5450 6850 5450
+Wire Wire Line
+	6850 5550 6800 5550
+Wire Wire Line
+	6800 5550 6800 5500
+Connection ~ 6800 5500
 $EndSCHEMATC
