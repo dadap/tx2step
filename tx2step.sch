@@ -2019,4 +2019,25 @@ F 3 "" H 6250 5150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6250 5150 6850 5150
+$Comp
+L Device:CP C22
+U 1 1 5FEBD259
+P 6600 6400
+F 0 "C22" H 6482 6446 50  0000 R CNN
+F 1 "100µF" H 6482 6355 50  0000 R CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 6638 6250 50  0001 C CNN
+F 3 "~" H 6600 6400 50  0001 C CNN
+	1    6600 6400
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 6300 6500 6300
+Wire Wire Line
+	6500 6300 6500 6250
+Wire Wire Line
+	6500 6250 6600 6250
+Connection ~ 6400 6300
+Wire Wire Line
+	6600 6550 6200 6550
+Connection ~ 6200 6550
 $EndSCHEMATC
