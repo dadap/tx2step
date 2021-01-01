@@ -912,13 +912,11 @@ Wire Wire Line
 	4300 6600 4050 6600
 Wire Wire Line
 	4050 6600 4050 6200
-Connection ~ 4050 6200
 Wire Wire Line
 	4300 6500 4200 6500
 Wire Wire Line
 	4200 6500 4200 6800
 Connection ~ 4200 6800
-Connection ~ 3250 6200
 Connection ~ 2950 6200
 Wire Wire Line
 	4700 5750 4200 5750
@@ -1669,8 +1667,6 @@ Wire Wire Line
 	1250 1150 2000 1150
 Text Label 2700 4250 0    60   ~ 0
 DC_SENSE
-Wire Wire Line
-	3250 6200 3500 6200
 $Comp
 L Device:R_Small R5
 U 1 1 635AA68E
@@ -1682,9 +1678,6 @@ F 3 "~" H 3500 6300 50  0001 C CNN
 	1    3500 6300
 	1    0    0    -1  
 $EndComp
-Connection ~ 3500 6200
-Wire Wire Line
-	3500 6200 4050 6200
 $Comp
 L Connector_Generic:Conn_02x04_Odd_Even J3
 U 1 1 635FE306
@@ -1710,17 +1703,6 @@ Wire Wire Line
 	6350 1200 6250 1200
 Wire Wire Line
 	5750 1200 5650 1200
-$Comp
-L power:GND #PWR030
-U 1 1 636F7BE1
-P 5650 1200
-F 0 "#PWR030" H 5650 950 50  0001 C CNN
-F 1 "GND" H 5655 1027 50  0000 C CNN
-F 2 "" H 5650 1200 50  0001 C CNN
-F 3 "" H 5650 1200 50  0001 C CNN
-	1    5650 1200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6250 900  6450 900 
 Wire Wire Line
@@ -1755,8 +1737,6 @@ F 3 "" H 5450 650 50  0001 C CNN
 	1    5450 650 
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5750 1100 5500 1100
 $Comp
 L power:VCC #PWR038
 U 1 1 637A432D
@@ -1771,31 +1751,20 @@ $EndComp
 $Comp
 L power:VCC #PWR026
 U 1 1 637A531E
-P 5300 1250
-F 0 "#PWR026" H 5300 1100 50  0001 C CNN
-F 1 "VCC" H 5315 1423 50  0000 C CNN
-F 2 "" H 5300 1250 50  0001 C CNN
-F 3 "" H 5300 1250 50  0001 C CNN
-	1    5300 1250
+P 5000 1100
+F 0 "#PWR026" H 5000 950 50  0001 C CNN
+F 1 "VCC" H 5015 1273 50  0000 C CNN
+F 2 "" H 5000 1100 50  0001 C CNN
+F 3 "" H 5000 1100 50  0001 C CNN
+	1    5000 1100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5300 1250 5500 1250
-Wire Wire Line
-	5500 1100 5500 1250
 Wire Wire Line
 	6250 1100 7000 1100
 Wire Wire Line
 	3100 6800 4100 6800
-Wire Wire Line
-	3500 6400 3900 6400
-Text Label 3850 6650 2    60   ~ 0
+Text Label 3850 6750 2    60   ~ 0
 SW_POWER
-Wire Wire Line
-	3850 6650 3900 6650
-Wire Wire Line
-	3900 6650 3900 6400
-Connection ~ 3900 6400
 Wire Wire Line
 	3900 6400 4300 6400
 $Comp
@@ -2054,4 +2023,47 @@ Wire Wire Line
 Wire Wire Line
 	6800 5550 6800 5500
 Connection ~ 6800 5500
+Wire Wire Line
+	3250 6200 3250 6000
+Wire Wire Line
+	3250 6000 4050 6000
+Wire Wire Line
+	4050 6000 4050 6200
+Connection ~ 3250 6200
+Connection ~ 4050 6200
+Wire Wire Line
+	3500 6200 3500 6100
+Wire Wire Line
+	3500 6100 3900 6100
+Wire Wire Line
+	3900 6100 3900 6400
+Wire Wire Line
+	3500 6400 3500 6450
+Wire Wire Line
+	3500 6450 3650 6450
+$Comp
+L power:GND #PWR?
+U 1 1 5FDAAE7A
+P 3650 6450
+F 0 "#PWR?" H 3650 6200 50  0001 C CNN
+F 1 "GND" H 3655 6277 50  0000 C CNN
+F 2 "" H 3650 6450 50  0001 C CNN
+F 3 "" H 3650 6450 50  0001 C CNN
+	1    3650 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 6750 3900 6750
+Wire Wire Line
+	3900 6750 3900 6400
+Connection ~ 3900 6400
+Text Label 2950 6000 2    60   ~ 0
+REG_IN
+Wire Wire Line
+	2950 6000 3250 6000
+Connection ~ 3250 6000
+Text Label 5650 1200 2    60   ~ 0
+REG_IN
+Wire Wire Line
+	5000 1100 5750 1100
 $EndSCHEMATC
