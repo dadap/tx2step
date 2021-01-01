@@ -267,28 +267,6 @@ F 3 "" H 6350 5750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C23
-U 1 1 58B996D7
-P 9250 5550
-F 0 "C23" H 9260 5620 50  0000 L CNN
-F 1 "2.2µF" H 9260 5470 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9250 5550 50  0001 C CNN
-F 3 "" H 9250 5550 50  0000 C CNN
-	1    9250 5550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C22
-U 1 1 58B99B41
-P 9250 2500
-F 0 "C22" H 9260 2570 50  0000 L CNN
-F 1 "2.2µF" H 9260 2420 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9250 2500 50  0001 C CNN
-F 3 "" H 9250 2500 50  0000 C CNN
-	1    9250 2500
-	1    0    0    -1  
-$EndComp
-$Comp
 L tx2step:TPS61202 IC3
 U 1 1 58BACDA2
 P 4850 6500
@@ -798,20 +776,6 @@ Wire Wire Line
 	4650 2550 4650 2400
 Connection ~ 4800 2550
 Wire Wire Line
-	6850 2100 6750 2100
-Wire Wire Line
-	6750 2100 6750 3400
-Wire Wire Line
-	6850 5150 6750 5150
-Wire Wire Line
-	6750 5150 6750 6450
-Wire Wire Line
-	6750 6450 8600 6450
-Wire Wire Line
-	8600 6450 8600 5450
-Wire Wire Line
-	8450 5450 8600 5450
-Wire Wire Line
 	6850 1800 6750 1800
 Wire Wire Line
 	6750 1800 6750 1700
@@ -839,7 +803,6 @@ Wire Wire Line
 	6700 2700 6850 2700
 Wire Wire Line
 	6700 5750 6850 5750
-Connection ~ 8600 5450
 Wire Wire Line
 	3950 7500 3950 7600
 Wire Wire Line
@@ -1014,8 +977,6 @@ Wire Wire Line
 Wire Wire Line
 	7650 3900 7650 4100
 Wire Wire Line
-	8600 5450 9250 5450
-Wire Wire Line
 	3500 7600 3700 7600
 Wire Wire Line
 	3950 7600 3950 7650
@@ -1182,32 +1143,6 @@ F 3 "" H 4950 3500 50  0000 C CNN
 	1    4950 3500
 	-1   0    0    1   
 $EndComp
-$Comp
-L power:GND #PWR047
-U 1 1 58B9897E
-P 9250 2650
-F 0 "#PWR047" H 9250 2400 50  0001 C CNN
-F 1 "GND" H 9250 2500 50  0000 C CNN
-F 2 "" H 9250 2650 50  0000 C CNN
-F 3 "" H 9250 2650 50  0000 C CNN
-	1    9250 2650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9250 2650 9250 2600
-$Comp
-L power:GND #PWR048
-U 1 1 58B993B1
-P 9250 5750
-F 0 "#PWR048" H 9250 5500 50  0001 C CNN
-F 1 "GND" H 9250 5600 50  0000 C CNN
-F 2 "" H 9250 5750 50  0000 C CNN
-F 3 "" H 9250 5750 50  0000 C CNN
-	1    9250 5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9250 5750 9250 5650
 $Comp
 L Device:C_Small C5
 U 1 1 58B4E57D
@@ -1856,11 +1791,6 @@ F 3 "" H 1900 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 1900 2000
-Connection ~ 8600 2400
-Wire Wire Line
-	8600 2400 9250 2400
-Wire Wire Line
-	8450 2400 8600 2400
 $Comp
 L power:GND #PWR046
 U 1 1 5FD4F32D
@@ -1913,10 +1843,6 @@ F 3 "~" H 8800 2700 50  0001 C CNN
 	1    8800 2700
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8600 3400 8600 2400
-Wire Wire Line
-	6750 3400 8600 3400
 $Comp
 L Device:R_Small R13
 U 1 1 5FD700A4
@@ -2066,4 +1992,31 @@ Text Label 5650 1200 2    60   ~ 0
 REG_IN
 Wire Wire Line
 	5000 1100 5750 1100
+$Comp
+L power:VCC #PWR?
+U 1 1 5FDDF7CA
+P 6250 2100
+F 0 "#PWR?" H 6250 1950 50  0001 C CNN
+F 1 "VCC" H 6265 2273 50  0000 C CNN
+F 2 "" H 6250 2100 50  0001 C CNN
+F 3 "" H 6250 2100 50  0001 C CNN
+	1    6250 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 2100 6850 2100
+NoConn ~ 8450 2400
+$Comp
+L power:VCC #PWR?
+U 1 1 5FE6335B
+P 6250 5150
+F 0 "#PWR?" H 6250 5000 50  0001 C CNN
+F 1 "VCC" H 6265 5323 50  0000 C CNN
+F 2 "" H 6250 5150 50  0001 C CNN
+F 3 "" H 6250 5150 50  0001 C CNN
+	1    6250 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 5150 6850 5150
 $EndSCHEMATC
