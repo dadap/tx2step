@@ -626,10 +626,6 @@ Wire Wire Line
 Connection ~ 4100 6800
 Connection ~ 3100 6550
 Wire Wire Line
-	4300 6600 4050 6600
-Wire Wire Line
-	4050 6600 4050 6200
-Wire Wire Line
 	4300 6500 4200 6500
 Wire Wire Line
 	4200 6500 4200 6800
@@ -637,8 +633,7 @@ Connection ~ 4200 6800
 Wire Wire Line
 	4700 5750 4200 5750
 Wire Wire Line
-	4200 5750 4200 6200
-Connection ~ 4200 6200
+	4200 5750 4200 6000
 Wire Wire Line
 	5000 5750 5400 5750
 Wire Wire Line
@@ -717,8 +712,6 @@ Wire Wire Line
 	4100 6800 4200 6800
 Wire Wire Line
 	3100 6550 3250 6550
-Wire Wire Line
-	4050 6200 4200 6200
 Wire Wire Line
 	4200 6800 4300 6800
 Wire Wire Line
@@ -1534,12 +1527,7 @@ Wire Wire Line
 Connection ~ 6800 5500
 Wire Wire Line
 	3250 6200 3250 6000
-Wire Wire Line
-	3250 6000 4050 6000
-Wire Wire Line
-	4050 6000 4050 6200
 Connection ~ 3250 6200
-Connection ~ 4050 6200
 Wire Wire Line
 	3500 6200 3500 6100
 Wire Wire Line
@@ -1570,7 +1558,6 @@ Text Label 2950 6000 2    60   ~ 0
 REG_IN
 Wire Wire Line
 	2950 6000 3250 6000
-Connection ~ 3250 6000
 Text Label 5650 1200 2    60   ~ 0
 REG_IN
 Wire Wire Line
@@ -2222,4 +2209,71 @@ Text Label 4150 5350 0    60   ~ 0
 TINY_GND
 Wire Wire Line
 	4150 5350 4150 5200
+Connection ~ 3250 6000
+Wire Wire Line
+	4300 6600 4000 6600
+Wire Wire Line
+	4000 6600 4000 5550
+Wire Wire Line
+	3250 6000 4200 6000
+Connection ~ 4200 6000
+Wire Wire Line
+	4200 6000 4200 6200
+Wire Wire Line
+	4000 5550 4750 5550
+$Comp
+L Device:R_Small R20
+U 1 1 601E766D
+P 5050 5200
+F 0 "R20" H 5109 5246 50  0000 L CNN
+F 1 "10KΩ" H 5109 5155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5050 5200 50  0001 C CNN
+F 3 "~" H 5050 5200 50  0001 C CNN
+	1    5050 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R21
+U 1 1 601E861D
+P 5050 5400
+F 0 "R21" H 5109 5446 50  0000 L CNN
+F 1 "910Ω" H 5109 5355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5050 5400 50  0001 C CNN
+F 3 "~" H 5050 5400 50  0001 C CNN
+	1    5050 5400
+	1    0    0    -1  
+$EndComp
+Connection ~ 5050 5300
+$Comp
+L power:GND #PWR0109
+U 1 1 601E95C1
+P 5050 5500
+F 0 "#PWR0109" H 5050 5250 50  0001 C CNN
+F 1 "GND" H 5055 5327 50  0000 C CNN
+F 2 "" H 5050 5500 50  0001 C CNN
+F 3 "" H 5050 5500 50  0001 C CNN
+	1    5050 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 5300 4750 5550
+Wire Wire Line
+	4750 5300 5050 5300
+$Comp
+L power:+BATT #PWR0110
+U 1 1 60237229
+P 5500 5200
+F 0 "#PWR0110" H 5500 5050 50  0001 C CNN
+F 1 "+BATT" H 5515 5373 50  0000 C CNN
+F 2 "" H 5500 5200 50  0001 C CNN
+F 3 "" H 5500 5200 50  0001 C CNN
+	1    5500 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 5200 5300 5200
+Wire Wire Line
+	5300 5200 5300 5100
+Wire Wire Line
+	5300 5100 5050 5100
 $EndSCHEMATC
