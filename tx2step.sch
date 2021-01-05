@@ -1480,7 +1480,7 @@ F 1 "R_POT_TRIM" H 6280 2405 50  0000 R CNN
 F 2 "Potentiometer_SMD:Potentiometer_Bourns_TC33X_Vertical" H 6350 2450 50  0001 C CNN
 F 3 "~" H 6350 2450 50  0001 C CNN
 	1    6350 2450
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 Wire Wire Line
 	6850 2300 6350 2300
@@ -1507,7 +1507,7 @@ F 1 "R_POT_TRIM" H 6280 5455 50  0000 R CNN
 F 2 "Potentiometer_SMD:Potentiometer_Bourns_TC33X_Vertical" H 6350 5500 50  0001 C CNN
 F 3 "~" H 6350 5500 50  0001 C CNN
 	1    6350 5500
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 Wire Wire Line
 	6850 5350 6350 5350
