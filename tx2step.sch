@@ -33,7 +33,7 @@ F 1 "D_TVS" H 9200 1950 50  0000 C CNN
 F 2 "Diode_SMD:D_SOD-323" H 9200 2050 50  0001 C CNN
 F 3 "" H 9200 2050 50  0000 C CNN
 	1    9200 2050
-	0    1    1    0   
+	0    1    -1   0   
 $EndComp
 $Comp
 L Device:D_TVS D5
@@ -55,7 +55,7 @@ F 1 "D_TVS" H 9200 5000 50  0000 C CNN
 F 2 "Diode_SMD:D_SOD-323" H 9200 5100 50  0001 C CNN
 F 3 "" H 9200 5100 50  0000 C CNN
 	1    9200 5100
-	0    1    1    0   
+	0    1    -1   0   
 $EndComp
 $Comp
 L Device:C_Small C16
@@ -326,7 +326,7 @@ L Device:R_Small R4
 U 1 1 58BD0C23
 P 2700 1000
 F 0 "R4" H 2730 1020 50  0000 L CNN
-F 1 "1KΩ" H 2730 960 50  0000 L CNN
+F 1 "2KΩ" H 2730 960 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2700 1000 50  0001 C CNN
 F 3 "" H 2700 1000 50  0000 C CNN
 	1    2700 1000
@@ -497,11 +497,6 @@ Wire Wire Line
 Wire Wire Line
 	8450 1700 8900 1700
 Wire Wire Line
-	9300 1400 9300 1600
-Wire Wire Line
-	9300 1600 9550 1600
-Connection ~ 8900 1700
-Wire Wire Line
 	8450 1900 9200 1900
 Wire Wire Line
 	9200 1900 9200 1500
@@ -526,12 +521,7 @@ Wire Wire Line
 	8600 4450 8900 4450
 Wire Wire Line
 	8450 4750 8900 4750
-Wire Wire Line
-	9300 4450 9300 4650
-Wire Wire Line
-	9300 4650 9550 4650
 Connection ~ 8900 4450
-Connection ~ 8900 4750
 Wire Wire Line
 	8450 4950 9200 4950
 Wire Wire Line
@@ -679,13 +669,9 @@ Wire Wire Line
 	2250 1550 2250 1650
 Connection ~ 2250 1650
 Wire Wire Line
-	8900 1700 9550 1700
-Wire Wire Line
 	9200 2200 9000 2200
 Wire Wire Line
 	8900 4450 9300 4450
-Wire Wire Line
-	8900 4750 9550 4750
 Wire Wire Line
 	9200 5250 9400 5250
 Wire Wire Line
@@ -1175,11 +1161,7 @@ $EndComp
 Connection ~ 2000 950 
 Connection ~ 2000 1150
 Wire Wire Line
-	1250 1050 1350 1050
-Wire Wire Line
 	1250 950  2000 950 
-Wire Wire Line
-	1250 1150 1350 1150
 $Comp
 L Device:R_Small R5
 U 1 1 635AA68E
@@ -2171,11 +2153,6 @@ Wire Wire Line
 	3100 3850 3100 3900
 Wire Wire Line
 	2650 3900 3100 3900
-Wire Wire Line
-	1350 1050 1350 1150
-Connection ~ 1350 1150
-Wire Wire Line
-	1350 1150 2000 1150
 $Comp
 L Device:R_Small R18
 U 1 1 5FF64042
@@ -2276,4 +2253,29 @@ Wire Wire Line
 	5300 5200 5300 5100
 Wire Wire Line
 	5300 5100 5050 5100
+Wire Wire Line
+	9300 4750 9550 4750
+Wire Wire Line
+	9300 4450 9300 4750
+Wire Wire Line
+	8900 4750 9100 4750
+Wire Wire Line
+	9100 4750 9100 4650
+Wire Wire Line
+	9100 4650 9550 4650
+Connection ~ 8900 4750
+Wire Wire Line
+	9300 1700 9550 1700
+Wire Wire Line
+	9300 1400 9300 1700
+Wire Wire Line
+	8900 1700 9100 1700
+Wire Wire Line
+	9100 1700 9100 1600
+Wire Wire Line
+	9100 1600 9550 1600
+Connection ~ 8900 1700
+Wire Wire Line
+	1250 1150 2000 1150
+NoConn ~ 1250 1050
 $EndSCHEMATC
