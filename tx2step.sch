@@ -860,11 +860,11 @@ Wire Wire Line
 Wire Wire Line
 	3200 1000 3250 1000
 Text Label 3250 1000 0    60   ~ 0
-POWER_LED
+STATUS_LED
 Wire Wire Line
 	1900 2800 2000 2800
 Text Label 2000 2800 0    60   ~ 0
-POWER_LED
+STATUS_LED
 Wire Wire Line
 	1900 2900 2000 2900
 Text Label 2000 2900 0    60   ~ 0
